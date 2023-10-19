@@ -32,6 +32,7 @@ __metaclass__ = type
 import json
 import re
 
+from ansible.module_utils.basic import AnsibleModule, _load_params
 from ansible.module_utils._text import to_text
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import (
     to_list,
@@ -152,3 +153,35 @@ def update_url(url):
 def to_request(module, requests):
     transform = ComplexList(dict(path=dict(key=True), method=dict(), data=dict(type='dict')), module)
     return transform(to_list(requests))
+
+
+class SonicAnsibleModule(AnsibleModule):
+
+    default_types = (bool, int, str)
+
+    def __init__(self, *args, **kwargs):
+        _params_raw = _load_params()
+        super(SonicAnsibleModule, self).__init__(*args, **kwargs)
+        if _params_raw.get('config') and self.params.get('config'):
+            self._remove_empties_in_params(self.params['config'], _params_raw['config'])
+
+    def _remove_empties_in_params(self, params, params_raw):
+        if isinstance(params, dict):
+            keys = list(params.keys())
+            for key in keys:
+                val = params[key]
+                if key in params_raw:
+                    if isinstance(val, dict):
+                        self._remove_empties_in_params(val, params_raw[key])
+                    elif isinstance(val, list) and val and isinstance(val[0], dict):
+                        # All elements in a list are of the same type,
+                        # therefore skip if the first element is not a dict
+                        for i in range(len(val)):
+                            self._remove_empties_in_params(val[i], params_raw[key][i])
+                else:
+                    # Remove an element if its type is not of any default value
+                    if not isinstance(val, self.default_types):
+                        params.pop(key)
+        elif isinstance(params, list) and params and isinstance(params[0], dict):
+            for i in range(len(params)):
+                self._remove_empties_in_params(params[i], params_raw[i])

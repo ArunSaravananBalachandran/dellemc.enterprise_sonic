@@ -759,7 +759,7 @@ commands:
 """
 
 
-from ansible.module_utils.basic import AnsibleModule
+from ansible_collections.dellemc.enterprise_sonic.plugins.module_utils.network.sonic.sonic import SonicAnsibleModule
 from ansible_collections.dellemc.enterprise_sonic.plugins.module_utils.network.sonic.argspec.dhcp_relay.dhcp_relay import Dhcp_relayArgs
 from ansible_collections.dellemc.enterprise_sonic.plugins.module_utils.network.sonic.config.dhcp_relay.dhcp_relay import Dhcp_relay
 
@@ -770,7 +770,7 @@ def main():
 
     :returns: the result form module invocation
     """
-    module = AnsibleModule(argument_spec=Dhcp_relayArgs.argument_spec,
+    module = SonicAnsibleModule(argument_spec=Dhcp_relayArgs.argument_spec,
                            supports_check_mode=True)
 
     result = Dhcp_relay(module).execute_module()
