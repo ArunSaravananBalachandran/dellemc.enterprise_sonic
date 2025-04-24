@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="2.16.3" name="antsibull-docs" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC &mdash; dellemc.enterprise_sonic Collection  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
+    <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7f41d439"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dellemc.enterprise_sonic.sonic_api module – Manages REST operations on devices running Enterprise SONiC" href="sonic_api_module.html" />
+    <link rel="prev" title="dellemc.enterprise_sonic.sonic_aaa module – Manage AAA configuration on SONiC" href="sonic_aaa_module.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="https://www.ansible.com/blog" target="_blank">Blog</a></li>
+    <li><a href="https://forum.ansible.com/" target="_blank">Ansible community forum</a></li>
+    <li><a href="https://docs.ansible.com/" target="_blank">Documentation</a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="https://ArunSaravananBalachandran.github.io/dellemc.enterprise_sonic/branch/doc_workflow/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="_static/images/Ansible-Mark-RGB_White.png"
+    alt="Ansible Logo">
+  <div class="DocSiteNav-title">dellemc.enterprise_sonic Collection Docs</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            dellemc.enterprise_sonic Collection
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sonic_aaa_module.html">dellemc.enterprise_sonic.sonic_aaa module – Manage AAA configuration on SONiC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-values">Return Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authors">Authors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-links">Collection links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_api_module.html">dellemc.enterprise_sonic.sonic_api module – Manages REST operations on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bfd_module.html">dellemc.enterprise_sonic.sonic_bfd module – Manage BFD configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_module.html">dellemc.enterprise_sonic.sonic_bgp module – Manage global BGP and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_af_module.html">dellemc.enterprise_sonic.sonic_bgp_af module – Manage global BGP address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_as_paths_module.html">dellemc.enterprise_sonic.sonic_bgp_as_paths module – Manage BGP autonomous system path (or as-path-list) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_communities module – Manage BGP community and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_ext_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_ext_communities module – Manage BGP extended community-list and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors module – Manage a BGP neighbor and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_af_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors_af module – Manage the BGP neighbor address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_command_module.html">dellemc.enterprise_sonic.sonic_command module – Runs commands on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_config_module.html">dellemc.enterprise_sonic.sonic_config module – Manages configuration sections on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_copp_module.html">dellemc.enterprise_sonic.sonic_copp module – Manage CoPP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_relay_module.html">dellemc.enterprise_sonic.sonic_dhcp_relay module – Manage DHCP and DHCPv6 relay configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_snooping_module.html">dellemc.enterprise_sonic.sonic_dhcp_snooping module – Manage DHCP Snooping on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_facts_module.html">dellemc.enterprise_sonic.sonic_facts module – Collects facts on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_classifiers_module.html">dellemc.enterprise_sonic.sonic_fbs_classifiers module – Manage flow based services (FBS) classifiers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fips_module.html">dellemc.enterprise_sonic.sonic_fips module – Manage FIPS configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_image_management_module.html">dellemc.enterprise_sonic.sonic_image_management module – Manage installation of Enterprise SONiC image, software patch and firmware updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_interfaces_module.html">dellemc.enterprise_sonic.sonic_interfaces module – Configure Interface attributes on interfaces such as, Eth, LAG, VLAN, and loopback. (create a loopback interface if it does not exist.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ip_neighbor_module.html">dellemc.enterprise_sonic.sonic_ip_neighbor module – Manage IP neighbor global configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_acls_module.html">dellemc.enterprise_sonic.sonic_l2_acls module – Manage Layer 2 access control lists (ACL) configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_interfaces_module.html">dellemc.enterprise_sonic.sonic_l2_interfaces module – Configure interface-to-VLAN association that is based on access or trunk mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l3_acls_module.html">dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l3_interfaces_module.html">dellemc.enterprise_sonic.sonic_l3_interfaces module – Configure the IPv4 and IPv6 parameters on Interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lag_interfaces_module.html">dellemc.enterprise_sonic.sonic_lag_interfaces module – Manage link aggregation group (LAG) interface parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ldap_module.html">dellemc.enterprise_sonic.sonic_ldap module – Configure global LDAP server settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_global_module.html">dellemc.enterprise_sonic.sonic_lldp_global module – Manage Global LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_interfaces_module.html">dellemc.enterprise_sonic.sonic_lldp_interfaces module – Manage Inteface LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_logging_module.html">dellemc.enterprise_sonic.sonic_logging module – Manage logging configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_login_lockout_module.html">dellemc.enterprise_sonic.sonic_login_lockout module – Manage Global Login Lockout configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lst_module.html">dellemc.enterprise_sonic.sonic_lst module – Manage link state tracking (LST) configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mac_module.html">dellemc.enterprise_sonic.sonic_mac module – Manage MAC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mclag_module.html">dellemc.enterprise_sonic.sonic_mclag module – Manage multi chassis link aggregation groups domain (MCLAG) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mgmt_servers_module.html">dellemc.enterprise_sonic.sonic_mgmt_servers module – Manage management servers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mirroring_module.html">dellemc.enterprise_sonic.sonic_mirroring module – Manage port mirroring configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ntp_module.html">dellemc.enterprise_sonic.sonic_ntp module – Manage NTP configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospf_area_module.html">dellemc.enterprise_sonic.sonic_ospf_area module – configure OSPF area settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_module.html">dellemc.enterprise_sonic.sonic_ospfv2 module – Configure global OSPFv2 protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_interfaces_module.html">dellemc.enterprise_sonic.sonic_ospfv2_interfaces module – Configure OSPFv2 interface mode protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_global_module.html">dellemc.enterprise_sonic.sonic_pim_global module – Manage global PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_interfaces_module.html">dellemc.enterprise_sonic.sonic_pim_interfaces module – Manage interface-specific PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pki_module.html">dellemc.enterprise_sonic.sonic_pki module – Manages PKI attributes of Enterprise Sonic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_poe_module.html">dellemc.enterprise_sonic.sonic_poe module – Manage PoE configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_breakout_module.html">dellemc.enterprise_sonic.sonic_port_breakout module – Configure port breakout settings on physical interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_group_module.html">dellemc.enterprise_sonic.sonic_port_group module – Manages port group configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_prefix_lists_module.html">dellemc.enterprise_sonic.sonic_prefix_lists module – prefix list configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_buffer_module.html">dellemc.enterprise_sonic.sonic_qos_buffer module – Manage QoS buffer configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_interfaces_module.html">dellemc.enterprise_sonic.sonic_qos_interfaces module – Manage QoS interfaces configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_maps_module.html">dellemc.enterprise_sonic.sonic_qos_maps module – Manage QoS maps configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_pfc_module.html">dellemc.enterprise_sonic.sonic_qos_pfc module – Manage QoS PFC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_scheduler_module.html">dellemc.enterprise_sonic.sonic_qos_scheduler module – Manage QoS scheduler configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_wred_module.html">dellemc.enterprise_sonic.sonic_qos_wred module – Manage QoS WRED profiles configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_radius_server_module.html">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_roce_module.html">dellemc.enterprise_sonic.sonic_roce module – Manage RoCE QoS configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_route_maps_module.html">dellemc.enterprise_sonic.sonic_route_maps module – route map configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_sflow_module.html">dellemc.enterprise_sonic.sonic_sflow module – configure sflow settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ssh_module.html">dellemc.enterprise_sonic.sonic_ssh module – Manage SSH configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_static_routes_module.html">dellemc.enterprise_sonic.sonic_static_routes module – Manage static routes configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_stp_module.html">dellemc.enterprise_sonic.sonic_stp module – Manage STP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_system_module.html">dellemc.enterprise_sonic.sonic_system module – Configure system parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_tacacs_server_module.html">dellemc.enterprise_sonic.sonic_tacacs_server module – Manage TACACS server and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_users_module.html">dellemc.enterprise_sonic.sonic_users module – Manage users and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlan_mapping_module.html">dellemc.enterprise_sonic.sonic_vlan_mapping module – Configure vlan mappings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlans_module.html">dellemc.enterprise_sonic.sonic_vlans module – Manage VLAN and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrfs_module.html">dellemc.enterprise_sonic.sonic_vrfs module – Manage VRFs and associate VRFs to interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrrp_module.html">dellemc.enterprise_sonic.sonic_vrrp module – Configure VRRP protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vxlans_module.html">dellemc.enterprise_sonic.sonic_vxlans module – Manage VxLAN EVPN and its parameters</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_cliconf.html">dellemc.enterprise_sonic.sonic cliconf – Use sonic cliconf to run command on Dell SONiC platforms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_httpapi.html">dellemc.enterprise_sonic.sonic httpapi – HttpApi Plugin for devices supporting Restconf SONIC API</a></li>
+</ul>
+<!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dellemc.enterprise_sonic Collection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <span class="target" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module"></span><section id="dellemc-enterprise-sonic-sonic-acl-interfaces-module-manage-access-control-list-acl-to-interface-binding-on-sonic">
+<h1>dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC<a class="headerlink" href="#dellemc-enterprise-sonic-sonic-acl-interfaces-module-manage-access-control-list-acl-to-interface-binding-on-sonic" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/dellemc/enterprise_sonic/">dellemc.enterprise_sonic collection</a> (version 3.0.0).</p>
+<p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
+To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
+<p>To install it, use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">dellemc.enterprise_sonic</span></code>.</p>
+<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">dellemc.enterprise_sonic.sonic_acl_interfaces</span></code>.</p>
+</div>
+<p class="ansible-version-added">New in dellemc.enterprise_sonic 2.1.0</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id3">Notes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
+</ul>
+</nav>
+<section id="synopsis">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This module provides configuration management of applying access control lists (ACL) to interfaces in devices running SONiC.</p></li>
+<li><p>ACL needs to be created earlier in the device.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-config"><strong>config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Specifies interface access-group configurations.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/access_groups"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-config-access-groups"><strong>access_groups</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/access_groups" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Access-group configurations to be set for the interface.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/access_groups/acls"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-config-access-groups-acls"><strong>acls</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/access_groups/acls" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>List of ACLs for the given type.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/access_groups/acls/direction"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-config-access-groups-acls-direction"><strong>direction</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/access_groups/acls/direction" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the direction of the packets that the ACL will be applied on.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;in&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;out&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/access_groups/acls/name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-config-access-groups-acls-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/access_groups/acls/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Name of the ACL to be applied on the interface.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/access_groups/type"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-config-access-groups-type"><strong>type</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/access_groups/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Type of the ACLs to be applied on the interface.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;mac&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipv4&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipv6&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-config-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Full name of the interface, i.e. Eth1/1.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-state"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-parameter-state"><strong>state</strong></p>
+<a class="ansibleOptionLink" href="#parameter-state" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The state of the configuration after module completion.</p>
+<p><em>merged</em> - Merges provided interface access-group configuration with on-device configuration.</p>
+<p><em>replaced</em> - Replaces on-device access-group configuration of the specified interfaces with provided configuration.</p>
+<p><em>overridden</em> - Overrides all on-device interface access-group configurations with the provided configuration.</p>
+<p><em>deleted</em> - Deletes on-device interface access-group configuration.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;merged&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;replaced&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;overridden&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;deleted&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Supports <code class="docutils literal notranslate"><span class="pre">check_mode</span></code>.</p></li>
+</ul>
+</div>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using &quot;merged&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># Ingress IPV6 access-list ipv6-acl-1 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Merge provided interface access-group configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_acl_interfaces</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/1&#39;</span>
+<span class="w">        </span><span class="nt">access_groups</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mac&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mac-acl-1&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;in&#39;</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mac-acl-2&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;out&#39;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6-acl-2&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;out&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/2&#39;</span>
+<span class="w">        </span><span class="nt">access_groups</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv4&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip-acl-1&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;in&#39;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merged</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># Ingress MAC access-list mac-acl-1 on Eth1/1</span>
+<span class="c1"># Egress MAC access-list mac-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Ingress IP access-list ip-acl-1 on Eth1/2</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># Ingress IPV6 access-list ipv6-acl-1 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;replaced&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># Ingress MAC access-list mac-acl-1 on Eth1/1</span>
+<span class="c1"># Egress MAC access-list mac-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Ingress IP access-list ip-acl-1 on Eth1/2</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># Ingress IPV6 access-list ipv6-acl-1 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace device access-group configuration of specified interfaces with provided configuration</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_acl_interfaces</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/2&#39;</span>
+<span class="w">        </span><span class="nt">access_groups</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6-acl-2&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;out&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/3&#39;</span>
+<span class="w">        </span><span class="nt">access_groups</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv4&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip-acl-2&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;out&#39;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replaced</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># Ingress MAC access-list mac-acl-1 on Eth1/1</span>
+<span class="c1"># Egress MAC access-list mac-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Egress IP access-list ip-acl-2 on Eth1/3</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># Ingress IPV6 access-list ipv6-acl-1 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/2</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;overridden&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># Ingress MAC access-list mac-acl-1 on Eth1/1</span>
+<span class="c1"># Egress MAC access-list mac-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Egress IP access-list ip-acl-2 on Eth1/3</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># Ingress IPV6 access-list ipv6-acl-1 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/2</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Override all interfaces access-group device configuration with provided configuration</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_acl_interfaces</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/1&#39;</span>
+<span class="w">        </span><span class="nt">access_groups</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip-acl-2&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;out&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/2&#39;</span>
+<span class="w">        </span><span class="nt">access_groups</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip-acl-2&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;out&#39;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">overridden</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Egress IP access-list ip-acl-2 on Eth1/1</span>
+<span class="c1"># Egress IP access-list ip-acl-2 on Eth1/2</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;deleted&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># Ingress MAC access-list mac-acl-1 on Eth1/1</span>
+<span class="c1"># Egress MAC access-list mac-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Egress IP access-list ip-acl-2 on Eth1/3</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># Ingress IPV6 access-list ipv6-acl-1 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/2</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete specified interfaces access-group configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_l2_acls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/1&#39;</span>
+<span class="w">        </span><span class="nt">access_groups</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mac&#39;</span>
+<span class="w">            </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mac-acl-1&#39;</span>
+<span class="w">                </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;in&#39;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/2&#39;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># Egress MAC access-list mac-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Egress IP access-list ip-acl-2 on Eth1/3</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;deleted&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># Ingress MAC access-list mac-acl-1 on Eth1/1</span>
+<span class="c1"># Egress MAC access-list mac-acl-2 on Eth1/1</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># Egress IP access-list ip-acl-2 on Eth1/3</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># Ingress IPV6 access-list ipv6-acl-1 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/1</span>
+<span class="c1"># Egress IPV6 access-list ipv6-acl-2 on Eth1/2</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete all interface access-group configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_acl_interfaces</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show mac access-group</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ip access-group</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show ipv6 access-group</span>
+<span class="c1"># sonic#</span>
+</pre></div>
+</div>
+</section>
+<section id="return-values">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<p>Common return values are documented <a class="reference external" href="https://docs.ansible.com/ansible/devel/reference_appendices/common_return_values.html#common-return-values" title="(in Ansible vdevel)"><span class="xref std std-ref">here</span></a>, the following are the fields unique to this module:</p>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-return-after"><strong>after</strong></p>
+<a class="ansibleOptionLink" href="#return-after" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The resulting configuration module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when changed</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after%28generated%29"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-return-after-generated"><strong>after(generated)</strong></p>
+<a class="ansibleOptionLink" href="#return-after%28generated%29" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The generated configuration module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when <code class="docutils literal notranslate"><span class="pre">check_mode</span></code></p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-before"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-return-before"><strong>before</strong></p>
+<a class="ansibleOptionLink" href="#return-before" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The configuration prior to the module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-commands"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-acl-interfaces-module-return-commands"><strong>commands</strong></p>
+<a class="ansibleOptionLink" href="#return-commands" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The set of commands pushed to the remote device.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;command</span> <span class="pre">1&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">2&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">3&quot;]</span></code></p>
+</div></td>
+</tr>
+</tbody>
+</table>
+<section id="authors">
+<h3>Authors<a class="headerlink" href="#authors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Arun Saravanan Balachandran (&#64;ArunSaravananBalachandran)</p></li>
+</ul>
+</section>
+<section id="collection-links">
+<h3>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h3>
+<ul class="ansible-links">
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sonic_aaa_module.html" class="btn btn-neutral float-left" title="dellemc.enterprise_sonic.sonic_aaa module – Manage AAA configuration on SONiC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sonic_api_module.html" class="btn btn-neutral float-right" title="dellemc.enterprise_sonic.sonic_api module – Manages REST operations on devices running Enterprise SONiC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright dellemc.enterprise_sonic Contributors.</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+</body>
+</html>

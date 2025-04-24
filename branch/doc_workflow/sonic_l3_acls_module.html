@@ -1,0 +1,1712 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="2.16.3" name="antsibull-docs" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC &mdash; dellemc.enterprise_sonic Collection  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
+    <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7f41d439"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dellemc.enterprise_sonic.sonic_l3_interfaces module – Configure the IPv4 and IPv6 parameters on Interfaces such as, Eth, LAG, VLAN, and loopback" href="sonic_l3_interfaces_module.html" />
+    <link rel="prev" title="dellemc.enterprise_sonic.sonic_l2_interfaces module – Configure interface-to-VLAN association that is based on access or trunk mode" href="sonic_l2_interfaces_module.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="https://www.ansible.com/blog" target="_blank">Blog</a></li>
+    <li><a href="https://forum.ansible.com/" target="_blank">Ansible community forum</a></li>
+    <li><a href="https://docs.ansible.com/" target="_blank">Documentation</a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="https://ArunSaravananBalachandran.github.io/dellemc.enterprise_sonic/branch/doc_workflow/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="_static/images/Ansible-Mark-RGB_White.png"
+    alt="Ansible Logo">
+  <div class="DocSiteNav-title">dellemc.enterprise_sonic Collection Docs</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            dellemc.enterprise_sonic Collection
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sonic_aaa_module.html">dellemc.enterprise_sonic.sonic_aaa module – Manage AAA configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_acl_interfaces_module.html">dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_api_module.html">dellemc.enterprise_sonic.sonic_api module – Manages REST operations on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bfd_module.html">dellemc.enterprise_sonic.sonic_bfd module – Manage BFD configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_module.html">dellemc.enterprise_sonic.sonic_bgp module – Manage global BGP and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_af_module.html">dellemc.enterprise_sonic.sonic_bgp_af module – Manage global BGP address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_as_paths_module.html">dellemc.enterprise_sonic.sonic_bgp_as_paths module – Manage BGP autonomous system path (or as-path-list) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_communities module – Manage BGP community and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_ext_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_ext_communities module – Manage BGP extended community-list and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors module – Manage a BGP neighbor and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_af_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors_af module – Manage the BGP neighbor address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_command_module.html">dellemc.enterprise_sonic.sonic_command module – Runs commands on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_config_module.html">dellemc.enterprise_sonic.sonic_config module – Manages configuration sections on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_copp_module.html">dellemc.enterprise_sonic.sonic_copp module – Manage CoPP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_relay_module.html">dellemc.enterprise_sonic.sonic_dhcp_relay module – Manage DHCP and DHCPv6 relay configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_snooping_module.html">dellemc.enterprise_sonic.sonic_dhcp_snooping module – Manage DHCP Snooping on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_facts_module.html">dellemc.enterprise_sonic.sonic_facts module – Collects facts on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_classifiers_module.html">dellemc.enterprise_sonic.sonic_fbs_classifiers module – Manage flow based services (FBS) classifiers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fips_module.html">dellemc.enterprise_sonic.sonic_fips module – Manage FIPS configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_image_management_module.html">dellemc.enterprise_sonic.sonic_image_management module – Manage installation of Enterprise SONiC image, software patch and firmware updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_interfaces_module.html">dellemc.enterprise_sonic.sonic_interfaces module – Configure Interface attributes on interfaces such as, Eth, LAG, VLAN, and loopback. (create a loopback interface if it does not exist.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ip_neighbor_module.html">dellemc.enterprise_sonic.sonic_ip_neighbor module – Manage IP neighbor global configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_acls_module.html">dellemc.enterprise_sonic.sonic_l2_acls module – Manage Layer 2 access control lists (ACL) configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_interfaces_module.html">dellemc.enterprise_sonic.sonic_l2_interfaces module – Configure interface-to-VLAN association that is based on access or trunk mode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-values">Return Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authors">Authors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-links">Collection links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l3_interfaces_module.html">dellemc.enterprise_sonic.sonic_l3_interfaces module – Configure the IPv4 and IPv6 parameters on Interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lag_interfaces_module.html">dellemc.enterprise_sonic.sonic_lag_interfaces module – Manage link aggregation group (LAG) interface parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ldap_module.html">dellemc.enterprise_sonic.sonic_ldap module – Configure global LDAP server settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_global_module.html">dellemc.enterprise_sonic.sonic_lldp_global module – Manage Global LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_interfaces_module.html">dellemc.enterprise_sonic.sonic_lldp_interfaces module – Manage Inteface LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_logging_module.html">dellemc.enterprise_sonic.sonic_logging module – Manage logging configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_login_lockout_module.html">dellemc.enterprise_sonic.sonic_login_lockout module – Manage Global Login Lockout configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lst_module.html">dellemc.enterprise_sonic.sonic_lst module – Manage link state tracking (LST) configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mac_module.html">dellemc.enterprise_sonic.sonic_mac module – Manage MAC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mclag_module.html">dellemc.enterprise_sonic.sonic_mclag module – Manage multi chassis link aggregation groups domain (MCLAG) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mgmt_servers_module.html">dellemc.enterprise_sonic.sonic_mgmt_servers module – Manage management servers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mirroring_module.html">dellemc.enterprise_sonic.sonic_mirroring module – Manage port mirroring configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ntp_module.html">dellemc.enterprise_sonic.sonic_ntp module – Manage NTP configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospf_area_module.html">dellemc.enterprise_sonic.sonic_ospf_area module – configure OSPF area settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_module.html">dellemc.enterprise_sonic.sonic_ospfv2 module – Configure global OSPFv2 protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_interfaces_module.html">dellemc.enterprise_sonic.sonic_ospfv2_interfaces module – Configure OSPFv2 interface mode protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_global_module.html">dellemc.enterprise_sonic.sonic_pim_global module – Manage global PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_interfaces_module.html">dellemc.enterprise_sonic.sonic_pim_interfaces module – Manage interface-specific PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pki_module.html">dellemc.enterprise_sonic.sonic_pki module – Manages PKI attributes of Enterprise Sonic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_poe_module.html">dellemc.enterprise_sonic.sonic_poe module – Manage PoE configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_breakout_module.html">dellemc.enterprise_sonic.sonic_port_breakout module – Configure port breakout settings on physical interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_group_module.html">dellemc.enterprise_sonic.sonic_port_group module – Manages port group configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_prefix_lists_module.html">dellemc.enterprise_sonic.sonic_prefix_lists module – prefix list configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_buffer_module.html">dellemc.enterprise_sonic.sonic_qos_buffer module – Manage QoS buffer configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_interfaces_module.html">dellemc.enterprise_sonic.sonic_qos_interfaces module – Manage QoS interfaces configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_maps_module.html">dellemc.enterprise_sonic.sonic_qos_maps module – Manage QoS maps configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_pfc_module.html">dellemc.enterprise_sonic.sonic_qos_pfc module – Manage QoS PFC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_scheduler_module.html">dellemc.enterprise_sonic.sonic_qos_scheduler module – Manage QoS scheduler configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_wred_module.html">dellemc.enterprise_sonic.sonic_qos_wred module – Manage QoS WRED profiles configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_radius_server_module.html">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_roce_module.html">dellemc.enterprise_sonic.sonic_roce module – Manage RoCE QoS configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_route_maps_module.html">dellemc.enterprise_sonic.sonic_route_maps module – route map configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_sflow_module.html">dellemc.enterprise_sonic.sonic_sflow module – configure sflow settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ssh_module.html">dellemc.enterprise_sonic.sonic_ssh module – Manage SSH configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_static_routes_module.html">dellemc.enterprise_sonic.sonic_static_routes module – Manage static routes configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_stp_module.html">dellemc.enterprise_sonic.sonic_stp module – Manage STP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_system_module.html">dellemc.enterprise_sonic.sonic_system module – Configure system parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_tacacs_server_module.html">dellemc.enterprise_sonic.sonic_tacacs_server module – Manage TACACS server and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_users_module.html">dellemc.enterprise_sonic.sonic_users module – Manage users and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlan_mapping_module.html">dellemc.enterprise_sonic.sonic_vlan_mapping module – Configure vlan mappings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlans_module.html">dellemc.enterprise_sonic.sonic_vlans module – Manage VLAN and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrfs_module.html">dellemc.enterprise_sonic.sonic_vrfs module – Manage VRFs and associate VRFs to interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrrp_module.html">dellemc.enterprise_sonic.sonic_vrrp module – Configure VRRP protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vxlans_module.html">dellemc.enterprise_sonic.sonic_vxlans module – Manage VxLAN EVPN and its parameters</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_cliconf.html">dellemc.enterprise_sonic.sonic cliconf – Use sonic cliconf to run command on Dell SONiC platforms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_httpapi.html">dellemc.enterprise_sonic.sonic httpapi – HttpApi Plugin for devices supporting Restconf SONIC API</a></li>
+</ul>
+<!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dellemc.enterprise_sonic Collection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <span class="target" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module"></span><section id="dellemc-enterprise-sonic-sonic-l3-acls-module-manage-layer-3-access-control-lists-acl-configurations-on-sonic">
+<h1>dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC<a class="headerlink" href="#dellemc-enterprise-sonic-sonic-l3-acls-module-manage-layer-3-access-control-lists-acl-configurations-on-sonic" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/dellemc/enterprise_sonic/">dellemc.enterprise_sonic collection</a> (version 3.0.0).</p>
+<p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
+To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
+<p>To install it, use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">dellemc.enterprise_sonic</span></code>.</p>
+<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">dellemc.enterprise_sonic.sonic_l3_acls</span></code>.</p>
+</div>
+<p class="ansible-version-added">New in dellemc.enterprise_sonic 2.1.0</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id3">Notes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
+</ul>
+</nav>
+<section id="synopsis">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This module provides configuration management of Layer 3 access control lists (ACL) in devices running SONiC.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config"><strong>config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Specifies Layer 3 ACL configurations.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls"><strong>acls</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>List of ACL configuration for the given address family.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the ACL name.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/remark"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-remark"><strong>remark</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/remark" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies remark for the ACL.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules"><strong>rules</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>List of rules with the ACL.</p>
+<p><em>sequence_num</em>, <em>action</em>, <em>protocol</em>, <em>source</em> &amp; <em>destination</em> are required for adding a new rule.</p>
+<p>If <em>state=deleted</em>, options other than <em>sequence_num</em> are not considered.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/action"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-action"><strong>action</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/action" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the action taken on the matched packet.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;deny&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;discard&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;do-not-nat&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;permit&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;transit&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination"><strong>destination</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the destination of the packet.</p>
+<p><em>any</em>, <em>host</em> and <em>prefix</em> are mutually exclusive.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/any"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-any"><strong>any</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/any" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match any destination network address.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/host"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-host"><strong>host</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/host" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Network address of a single destination host.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/port_number"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-port-number"><strong>port_number</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/port_number" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the destination port (valid only for TCP or UDP)</p>
+<p>Only one suboption can be specified for port_number in a rule.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/port_number/eq"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-port-number-eq"><strong>eq</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/port_number/eq" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with destination port equal to the given port number.</p>
+<p>The range is from 0 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/port_number/gt"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-port-number-gt"><strong>gt</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/port_number/gt" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with destination port greater than the given port number.</p>
+<p>The range is from 0 to 65534.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/port_number/lt"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-port-number-lt"><strong>lt</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/port_number/lt" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with destination port lesser than the given port number.</p>
+<p>The range is from 1 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/port_number/range"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-port-number-range"><strong>range</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/port_number/range" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with destination port in the given range.</p>
+<p><em>begin</em> and <em>end</em> are required together.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/port_number/range/begin"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-port-number-range-begin"><strong>begin</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/port_number/range/begin" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the beginning of the port range.</p>
+<p>The range is from 0 to 65534.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/port_number/range/end"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-port-number-range-end"><strong>end</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/port_number/range/end" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the end of the port range.</p>
+<p>The range is from 1 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/destination/prefix"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-destination-prefix"><strong>prefix</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/destination/prefix" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination network prefix in the format A.B.C.D/mask (ipv4) or A::B/mask (ipv6).</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp"><strong>dscp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets using DSCP value.</p>
+<p>Only one suboption can be specified for dscp in a rule.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af11"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af11"><strong>af11</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af11" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF11 DSCP (001010 - Decimal value 10).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af12"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af12"><strong>af12</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af12" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF12 DSCP (001100 - Decimal value 12).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af13"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af13"><strong>af13</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af13" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF13 DSCP (001110 - Decimal value 14).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af21"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af21"><strong>af21</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af21" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF21 DSCP (010010 - Decimal value 18).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af22"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af22"><strong>af22</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af22" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF22 DSCP (010100 - Decimal value 20).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af23"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af23"><strong>af23</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af23" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF23 DSCP (010110 - Decimal value 22).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af31"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af31"><strong>af31</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af31" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF31 DSCP (011010 - Decimal value 26).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af32"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af32"><strong>af32</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af32" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF32 DSCP (011100 - Decimal value 28).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af33"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af33"><strong>af33</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af33" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF33 DSCP (011110 - Decimal value 30).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af41"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af41"><strong>af41</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af41" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF41 DSCP (100010 - Decimal value 34).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af42"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af42"><strong>af42</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af42" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF42 DSCP (100100 - Decimal value 36).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/af43"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-af43"><strong>af43</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/af43" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with AF43 DSCP (100110 - Decimal value 38).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/cs1"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-cs1"><strong>cs1</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/cs1" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS1 DSCP (001000 - Decimal value 8).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/cs2"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-cs2"><strong>cs2</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/cs2" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS2 DSCP (010000 - Decimal value 16).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/cs3"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-cs3"><strong>cs3</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/cs3" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS3 DSCP (011000 - Decimal value 24).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/cs4"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-cs4"><strong>cs4</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/cs4" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS4 DSCP (100000 - Decimal value 32).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/cs5"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-cs5"><strong>cs5</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/cs5" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS5 DSCP (101000 - Decimal value 40).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/cs6"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-cs6"><strong>cs6</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/cs6" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS6 DSCP (110000 - Decimal value 48).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/cs7"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-cs7"><strong>cs7</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/cs7" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS7 DSCP (111000 - Decimal value 56).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/default"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-default"><strong>default</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/default" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with CS0 DSCP (000000 - Decimal value 0).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/ef"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-ef"><strong>ef</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/ef" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with EF DSCP (101110 - Decimal value 46).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/value"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-value"><strong>value</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/value" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with given DSCP value.</p>
+<p>The range is from 0 to 63.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/dscp/voice_admit"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-dscp-voice-admit"><strong>voice_admit</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/dscp/voice_admit" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with VOICE-ADMIT DSCP (101100 - Decimal value 44).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol"><strong>protocol</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the protocol to match.</p>
+<p>Only one suboption can be specified for protocol in a rule.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol/name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with the given protocol.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ip</span></code> - Match any IPv4 packets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ipv6</span></code> - Match any IPv6 packets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">icmp</span></code> - Match ICMP packets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">icmpv6</span></code> - Match ICMPv6 packets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tcp</span></code> - Match TCP packets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">udp</span></code> - Match UDP packets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ip</span></code> and <code class="docutils literal notranslate"><span class="pre">icmp</span></code> are valid only for IPv4 ACLs.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ipv6</span></code> and <code class="docutils literal notranslate"><span class="pre">icmpv6</span></code> are valid only for IPv6 ACLs.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ip&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipv6&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;icmp&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;icmpv6&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;tcp&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;udp&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol/number"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-number"><strong>number</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol/number" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with given protocol number.</p>
+<p>The range is from 0 to 255.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options"><strong>protocol_options</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the additional packet match options for the chosen protocol.</p>
+<p><em>icmp</em>, <em>icmpv6</em> and <em>tcp</em> are mutually exclusive.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/icmp"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-icmp"><strong>icmp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/icmp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Packet match options for ICMP.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/icmp/code"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-icmp-code"><strong>code</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/icmp/code" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with given ICMP code.</p>
+<p>The range is from 0 to 255.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/icmp/type"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-icmp-type"><strong>type</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/icmp/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with given ICMP type.</p>
+<p>The range is from 0 to 255.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/icmpv6"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-icmpv6"><strong>icmpv6</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/icmpv6" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Packet match options for ICMPv6.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/icmpv6/code"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-icmpv6-code"><strong>code</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/icmpv6/code" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with given ICMPv6 code.</p>
+<p>The range is from 0 to 255.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/icmpv6/type"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-icmpv6-type"><strong>type</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/icmpv6/type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with given ICMPv6 type.</p>
+<p>The range is from 0 to 255.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp"><strong>tcp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Packet match options for TCP.</p>
+<p><em>established</em> and other TCP flag options are mutually exclusive.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/ack"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-ack"><strong>ack</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/ack" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with ACK flag set.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/established"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-established"><strong>established</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/established" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets which are part of established TCP session.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/fin"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-fin"><strong>fin</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/fin" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with FIN flag set.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/not_ack"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-not-ack"><strong>not_ack</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/not_ack" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with ACK flag cleared.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/not_fin"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-not-fin"><strong>not_fin</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/not_fin" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with FIN flag cleared.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/not_psh"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-not-psh"><strong>not_psh</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/not_psh" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with PSH flag cleared.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/not_rst"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-not-rst"><strong>not_rst</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/not_rst" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with RST flag cleared.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/not_syn"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-not-syn"><strong>not_syn</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/not_syn" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with SYN flag cleared.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/not_urg"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-not-urg"><strong>not_urg</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/not_urg" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with URG flag cleared.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/psh"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-psh"><strong>psh</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/psh" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with PSH flag set.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/rst"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-rst"><strong>rst</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/rst" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with RST flag set.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/syn"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-syn"><strong>syn</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/syn" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with SYN flag set.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/protocol_options/tcp/urg"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-protocol-options-tcp-urg"><strong>urg</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/protocol_options/tcp/urg" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with URG flag set.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/remark"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-remark"><strong>remark</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/remark" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies remark for the ACL rule.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/sequence_num"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-sequence-num"><strong>sequence_num</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/sequence_num" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the sequence number of the rule.</p>
+<p>The range is from 1 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source"><strong>source</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the source of the packet.</p>
+<p><em>any</em>, <em>host</em> and <em>prefix</em> are mutually exclusive.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/any"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-any"><strong>any</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/any" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match any source network address.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/host"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-host"><strong>host</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/host" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Network address of a single source host.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/port_number"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-port-number"><strong>port_number</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/port_number" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the source port (valid only for TCP or UDP)</p>
+<p>Only one suboption can be specified for port_number in a rule.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/port_number/eq"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-port-number-eq"><strong>eq</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/port_number/eq" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with source port equal to the given port number.</p>
+<p>The range is from 0 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/port_number/gt"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-port-number-gt"><strong>gt</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/port_number/gt" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with source port greater than the given port number.</p>
+<p>The range is from 0 to 65534.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/port_number/lt"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-port-number-lt"><strong>lt</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/port_number/lt" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with source port lesser than the given port number.</p>
+<p>The range is from 1 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/port_number/range"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-port-number-range"><strong>range</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/port_number/range" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with source port in the given range.</p>
+<p><em>begin</em> and <em>end</em> are required together.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/port_number/range/begin"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-port-number-range-begin"><strong>begin</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/port_number/range/begin" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the beginning of the port range.</p>
+<p>The range is from 0 to 65534.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/port_number/range/end"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-port-number-range-end"><strong>end</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/port_number/range/end" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the end of the port range.</p>
+<p>The range is from 1 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/source/prefix"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-source-prefix"><strong>prefix</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/source/prefix" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source network prefix in the format A.B.C.D/mask (ipv4) or A::B/mask (ipv6).</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/acls/rules/vlan_id"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-acls-rules-vlan-id"><strong>vlan_id</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/acls/rules/vlan_id" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Match packets with the given VLAN ID value.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/address_family"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-config-address-family"><strong>address_family</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/address_family" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the address family of the ACLs.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipv4&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipv6&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-state"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-parameter-state"><strong>state</strong></p>
+<a class="ansibleOptionLink" href="#parameter-state" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The state of the configuration after module completion.</p>
+<p><code class="docutils literal notranslate"><span class="pre">merged</span></code> - Merges provided L3 ACL configuration with on-device configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">replaced</span></code> - Replaces on-device configuration of the specified L3 ACLs with provided configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">overridden</span></code> - Overrides all on-device L3 ACL configurations with the provided configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">deleted</span></code> - Deletes on-device L3 ACL configuration.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;merged&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;replaced&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;overridden&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;deleted&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Supports <code class="docutils literal notranslate"><span class="pre">check_mode</span></code>.</p></li>
+</ul>
+</div>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using &quot;merged&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit ipv6 host 192:168:1::2 any</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Merge provided Layer 3 ACL configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_l3_acls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv4&#39;</span>
+<span class="w">        </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;permit&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;icmp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;192.168.1.2&#39;</span>
+<span class="w">                </span><span class="nt">protocol_options</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">icmp</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">vlan_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">                </span><span class="nt">remark</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Vlan10&#39;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test1&#39;</span>
+<span class="w">            </span><span class="nt">remark</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test_ip_acl&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;permit&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tcp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;10.0.0.0/8&#39;</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;udp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;20.1.0.0/16&#39;</span>
+<span class="w">                  </span><span class="nt">port_number</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">gt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">dscp</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">63</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">        </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;testv6&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;icmpv6&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;testv6-1&#39;</span>
+<span class="w">            </span><span class="nt">remark</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test_ipv6_acl&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;permit&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1000::/16&#39;</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">dscp</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">af22</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tcp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2000::1000:0/112&#39;</span>
+<span class="w">                  </span><span class="nt">port_number</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">range</span><span class="p">:</span>
+<span class="w">                      </span><span class="nt">begin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">                      </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;permit&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tcp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">protocol_options</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">tcp</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">established</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;udp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                  </span><span class="nt">port_number</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">eq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merged</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 2 permit icmp any host 192.168.1.2 type 8</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit ipv6 host 192:168:1::2 any</span>
+<span class="c1">#  seq 2 deny icmpv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;replaced&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 2 permit icmp any host 192.168.1.2 type 8</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp host 3000::1 any established</span>
+<span class="c1">#  seq 2 permit udp any any</span>
+<span class="c1">#  seq 3 deny icmpv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace device configuration of specified Layer 3 ACLs with provided configuration</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_l3_acls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv4&#39;</span>
+<span class="w">        </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test2&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;permit&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tcp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;192.168.1.0/24&#39;</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">        </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;testv6&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;permit&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tcp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3000::1&#39;</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">protocol_options</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">tcp</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">ack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                    </span><span class="nt">syn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                    </span><span class="nt">fin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replaced</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 2 permit icmp any host 192.168.1.3 type 8</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test2</span>
+<span class="c1">#  seq 1 permit tcp 192.168.1.0/24 any</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp host 3000::1 any fin syn ack</span>
+<span class="c1">#  seq 2 deny ipv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;overridden&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 2 permit icmp any host 192.168.1.3 type 8</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test2</span>
+<span class="c1">#  seq 1 permit tcp 192.168.1.0/24 any</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp 3000::/16 any</span>
+<span class="c1">#  seq 2 deny ipv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Override device configuration of all Layer 3 ACLs with provided configuration</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_l3_acls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv4&#39;</span>
+<span class="w">        </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test_acl&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;permit&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ip&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;100.1.1.0/24&#39;</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;100.1.2.0/24&#39;</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">                </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;deny&#39;</span>
+<span class="w">                </span><span class="nt">protocol</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;udp&#39;</span>
+<span class="w">                </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">                </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">overridden</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test_acl</span>
+<span class="c1">#  seq 1 permit ip 100.1.1.0/24 100.1.2.0/24</span>
+<span class="c1">#  seq 2 deny udp any any</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;deleted&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 2 permit icmp any host 192.168.1.3 type 8</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test2</span>
+<span class="c1">#  seq 1 permit tcp 192.168.1.0/24 any</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp 3000::/16 any</span>
+<span class="c1">#  seq 2 deny ipv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete specified Layer 3 ACLs, ACL remark and ACL rule entries</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_l3_acls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv4&#39;</span>
+<span class="w">        </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test2&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv6&#39;</span>
+<span class="w">        </span><span class="nt">acls</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;testv6-1&#39;</span>
+<span class="w">            </span><span class="nt">remark</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test_ipv6_acl&#39;</span>
+<span class="w">            </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">sequence_num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp 3000::/16 any</span>
+<span class="c1">#  seq 2 deny ipv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;deleted&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 2 permit icmp any host 192.168.1.3 type 8</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test2</span>
+<span class="c1">#  seq 1 permit tcp 192.168.1.0/24 any</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp 3000::/16 any</span>
+<span class="c1">#  seq 2 deny ipv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete all Layer 3 ACLs for an address-family</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_l3_acls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address_family</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ipv4&#39;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp 3000::/16 any</span>
+<span class="c1">#  seq 2 deny ipv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;deleted&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test</span>
+<span class="c1">#  seq 1 permit ip host 192.168.1.2 any</span>
+<span class="c1">#  seq 2 permit icmp any host 192.168.1.3 type 8</span>
+<span class="c1">#  seq 3 deny 2 any any</span>
+<span class="c1">#  seq 4 deny ip any any vlan 10 remark Vlan10</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test1</span>
+<span class="c1">#  remark test_ip_acl</span>
+<span class="c1">#  seq 1 permit tcp 10.0.0.0/8 any</span>
+<span class="c1">#  seq 2 deny udp any 20.1.0.0/16 gt 1024</span>
+<span class="c1">#  seq 3 deny ip any any dscp 63</span>
+<span class="c1"># !</span>
+<span class="c1"># ip access-list test2</span>
+<span class="c1">#  seq 1 permit tcp 192.168.1.0/24 any</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6</span>
+<span class="c1">#  seq 1 permit tcp 3000::/16 any</span>
+<span class="c1">#  seq 2 deny ipv6 any any</span>
+<span class="c1"># !</span>
+<span class="c1"># ipv6 access-list testv6-1</span>
+<span class="c1">#  remark test_ipv6_acl</span>
+<span class="c1">#  seq 1 permit ipv6 1000::/16 any dscp af22</span>
+<span class="c1">#  seq 2 deny tcp any 2000::1000:0/112 range 100 1000</span>
+<span class="c1">#  seq 3 permit tcp any any established</span>
+<span class="c1">#  seq 4 deny udp any eq 3000 any</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete all Layer 3 ACL configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_l3_acls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration ip access-list</span>
+<span class="c1"># sonic#</span>
+<span class="c1"># sonic# show running-configuration ipv6 access-list</span>
+<span class="c1"># sonic#</span>
+</pre></div>
+</div>
+</section>
+<section id="return-values">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<p>Common return values are documented <a class="reference external" href="https://docs.ansible.com/ansible/devel/reference_appendices/common_return_values.html#common-return-values" title="(in Ansible vdevel)"><span class="xref std std-ref">here</span></a>, the following are the fields unique to this module:</p>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-return-after"><strong>after</strong></p>
+<a class="ansibleOptionLink" href="#return-after" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The resulting configuration module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when changed</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after%28generated%29"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-return-after-generated"><strong>after(generated)</strong></p>
+<a class="ansibleOptionLink" href="#return-after%28generated%29" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The generated configuration module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when <code class="docutils literal notranslate"><span class="pre">check_mode</span></code></p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-before"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-return-before"><strong>before</strong></p>
+<a class="ansibleOptionLink" href="#return-before" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The configuration prior to the module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-commands"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-l3-acls-module-return-commands"><strong>commands</strong></p>
+<a class="ansibleOptionLink" href="#return-commands" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The set of commands pushed to the remote device.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;command</span> <span class="pre">1&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">2&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">3&quot;]</span></code></p>
+</div></td>
+</tr>
+</tbody>
+</table>
+<section id="authors">
+<h3>Authors<a class="headerlink" href="#authors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Arun Saravanan Balachandran (&#64;ArunSaravananBalachandran)</p></li>
+</ul>
+</section>
+<section id="collection-links">
+<h3>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h3>
+<ul class="ansible-links">
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sonic_l2_interfaces_module.html" class="btn btn-neutral float-left" title="dellemc.enterprise_sonic.sonic_l2_interfaces module – Configure interface-to-VLAN association that is based on access or trunk mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sonic_l3_interfaces_module.html" class="btn btn-neutral float-right" title="dellemc.enterprise_sonic.sonic_l3_interfaces module – Configure the IPv4 and IPv6 parameters on Interfaces such as, Eth, LAG, VLAN, and loopback" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright dellemc.enterprise_sonic Contributors.</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+</body>
+</html>

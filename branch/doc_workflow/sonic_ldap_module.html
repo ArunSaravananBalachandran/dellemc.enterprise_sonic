@@ -1,0 +1,1163 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="2.16.3" name="antsibull-docs" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dellemc.enterprise_sonic.sonic_ldap module – Configure global LDAP server settings on SONiC. &mdash; dellemc.enterprise_sonic Collection  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
+    <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7f41d439"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dellemc.enterprise_sonic.sonic_lldp_global module – Manage Global LLDP configurations on SONiC" href="sonic_lldp_global_module.html" />
+    <link rel="prev" title="dellemc.enterprise_sonic.sonic_lag_interfaces module – Manage link aggregation group (LAG) interface parameters" href="sonic_lag_interfaces_module.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="https://www.ansible.com/blog" target="_blank">Blog</a></li>
+    <li><a href="https://forum.ansible.com/" target="_blank">Ansible community forum</a></li>
+    <li><a href="https://docs.ansible.com/" target="_blank">Documentation</a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="https://ArunSaravananBalachandran.github.io/dellemc.enterprise_sonic/branch/doc_workflow/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="_static/images/Ansible-Mark-RGB_White.png"
+    alt="Ansible Logo">
+  <div class="DocSiteNav-title">dellemc.enterprise_sonic Collection Docs</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            dellemc.enterprise_sonic Collection
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sonic_aaa_module.html">dellemc.enterprise_sonic.sonic_aaa module – Manage AAA configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_acl_interfaces_module.html">dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_api_module.html">dellemc.enterprise_sonic.sonic_api module – Manages REST operations on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bfd_module.html">dellemc.enterprise_sonic.sonic_bfd module – Manage BFD configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_module.html">dellemc.enterprise_sonic.sonic_bgp module – Manage global BGP and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_af_module.html">dellemc.enterprise_sonic.sonic_bgp_af module – Manage global BGP address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_as_paths_module.html">dellemc.enterprise_sonic.sonic_bgp_as_paths module – Manage BGP autonomous system path (or as-path-list) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_communities module – Manage BGP community and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_ext_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_ext_communities module – Manage BGP extended community-list and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors module – Manage a BGP neighbor and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_af_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors_af module – Manage the BGP neighbor address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_command_module.html">dellemc.enterprise_sonic.sonic_command module – Runs commands on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_config_module.html">dellemc.enterprise_sonic.sonic_config module – Manages configuration sections on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_copp_module.html">dellemc.enterprise_sonic.sonic_copp module – Manage CoPP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_relay_module.html">dellemc.enterprise_sonic.sonic_dhcp_relay module – Manage DHCP and DHCPv6 relay configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_snooping_module.html">dellemc.enterprise_sonic.sonic_dhcp_snooping module – Manage DHCP Snooping on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_facts_module.html">dellemc.enterprise_sonic.sonic_facts module – Collects facts on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_classifiers_module.html">dellemc.enterprise_sonic.sonic_fbs_classifiers module – Manage flow based services (FBS) classifiers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fips_module.html">dellemc.enterprise_sonic.sonic_fips module – Manage FIPS configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_image_management_module.html">dellemc.enterprise_sonic.sonic_image_management module – Manage installation of Enterprise SONiC image, software patch and firmware updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_interfaces_module.html">dellemc.enterprise_sonic.sonic_interfaces module – Configure Interface attributes on interfaces such as, Eth, LAG, VLAN, and loopback. (create a loopback interface if it does not exist.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ip_neighbor_module.html">dellemc.enterprise_sonic.sonic_ip_neighbor module – Manage IP neighbor global configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_acls_module.html">dellemc.enterprise_sonic.sonic_l2_acls module – Manage Layer 2 access control lists (ACL) configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_interfaces_module.html">dellemc.enterprise_sonic.sonic_l2_interfaces module – Configure interface-to-VLAN association that is based on access or trunk mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l3_acls_module.html">dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l3_interfaces_module.html">dellemc.enterprise_sonic.sonic_l3_interfaces module – Configure the IPv4 and IPv6 parameters on Interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lag_interfaces_module.html">dellemc.enterprise_sonic.sonic_lag_interfaces module – Manage link aggregation group (LAG) interface parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dellemc.enterprise_sonic.sonic_ldap module – Configure global LDAP server settings on SONiC.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-values">Return Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authors">Authors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-links">Collection links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_global_module.html">dellemc.enterprise_sonic.sonic_lldp_global module – Manage Global LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_interfaces_module.html">dellemc.enterprise_sonic.sonic_lldp_interfaces module – Manage Inteface LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_logging_module.html">dellemc.enterprise_sonic.sonic_logging module – Manage logging configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_login_lockout_module.html">dellemc.enterprise_sonic.sonic_login_lockout module – Manage Global Login Lockout configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lst_module.html">dellemc.enterprise_sonic.sonic_lst module – Manage link state tracking (LST) configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mac_module.html">dellemc.enterprise_sonic.sonic_mac module – Manage MAC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mclag_module.html">dellemc.enterprise_sonic.sonic_mclag module – Manage multi chassis link aggregation groups domain (MCLAG) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mgmt_servers_module.html">dellemc.enterprise_sonic.sonic_mgmt_servers module – Manage management servers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mirroring_module.html">dellemc.enterprise_sonic.sonic_mirroring module – Manage port mirroring configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ntp_module.html">dellemc.enterprise_sonic.sonic_ntp module – Manage NTP configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospf_area_module.html">dellemc.enterprise_sonic.sonic_ospf_area module – configure OSPF area settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_module.html">dellemc.enterprise_sonic.sonic_ospfv2 module – Configure global OSPFv2 protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_interfaces_module.html">dellemc.enterprise_sonic.sonic_ospfv2_interfaces module – Configure OSPFv2 interface mode protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_global_module.html">dellemc.enterprise_sonic.sonic_pim_global module – Manage global PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_interfaces_module.html">dellemc.enterprise_sonic.sonic_pim_interfaces module – Manage interface-specific PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pki_module.html">dellemc.enterprise_sonic.sonic_pki module – Manages PKI attributes of Enterprise Sonic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_poe_module.html">dellemc.enterprise_sonic.sonic_poe module – Manage PoE configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_breakout_module.html">dellemc.enterprise_sonic.sonic_port_breakout module – Configure port breakout settings on physical interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_group_module.html">dellemc.enterprise_sonic.sonic_port_group module – Manages port group configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_prefix_lists_module.html">dellemc.enterprise_sonic.sonic_prefix_lists module – prefix list configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_buffer_module.html">dellemc.enterprise_sonic.sonic_qos_buffer module – Manage QoS buffer configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_interfaces_module.html">dellemc.enterprise_sonic.sonic_qos_interfaces module – Manage QoS interfaces configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_maps_module.html">dellemc.enterprise_sonic.sonic_qos_maps module – Manage QoS maps configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_pfc_module.html">dellemc.enterprise_sonic.sonic_qos_pfc module – Manage QoS PFC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_scheduler_module.html">dellemc.enterprise_sonic.sonic_qos_scheduler module – Manage QoS scheduler configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_wred_module.html">dellemc.enterprise_sonic.sonic_qos_wred module – Manage QoS WRED profiles configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_radius_server_module.html">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_roce_module.html">dellemc.enterprise_sonic.sonic_roce module – Manage RoCE QoS configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_route_maps_module.html">dellemc.enterprise_sonic.sonic_route_maps module – route map configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_sflow_module.html">dellemc.enterprise_sonic.sonic_sflow module – configure sflow settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ssh_module.html">dellemc.enterprise_sonic.sonic_ssh module – Manage SSH configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_static_routes_module.html">dellemc.enterprise_sonic.sonic_static_routes module – Manage static routes configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_stp_module.html">dellemc.enterprise_sonic.sonic_stp module – Manage STP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_system_module.html">dellemc.enterprise_sonic.sonic_system module – Configure system parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_tacacs_server_module.html">dellemc.enterprise_sonic.sonic_tacacs_server module – Manage TACACS server and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_users_module.html">dellemc.enterprise_sonic.sonic_users module – Manage users and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlan_mapping_module.html">dellemc.enterprise_sonic.sonic_vlan_mapping module – Configure vlan mappings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlans_module.html">dellemc.enterprise_sonic.sonic_vlans module – Manage VLAN and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrfs_module.html">dellemc.enterprise_sonic.sonic_vrfs module – Manage VRFs and associate VRFs to interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrrp_module.html">dellemc.enterprise_sonic.sonic_vrrp module – Configure VRRP protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vxlans_module.html">dellemc.enterprise_sonic.sonic_vxlans module – Manage VxLAN EVPN and its parameters</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_cliconf.html">dellemc.enterprise_sonic.sonic cliconf – Use sonic cliconf to run command on Dell SONiC platforms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_httpapi.html">dellemc.enterprise_sonic.sonic httpapi – HttpApi Plugin for devices supporting Restconf SONIC API</a></li>
+</ul>
+<!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dellemc.enterprise_sonic Collection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dellemc.enterprise_sonic.sonic_ldap module – Configure global LDAP server settings on SONiC.</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <span class="target" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module"></span><section id="dellemc-enterprise-sonic-sonic-ldap-module-configure-global-ldap-server-settings-on-sonic">
+<h1>dellemc.enterprise_sonic.sonic_ldap module – Configure global LDAP server settings on SONiC.<a class="headerlink" href="#dellemc-enterprise-sonic-sonic-ldap-module-configure-global-ldap-server-settings-on-sonic" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/dellemc/enterprise_sonic/">dellemc.enterprise_sonic collection</a> (version 3.0.0).</p>
+<p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
+To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
+<p>To install it, use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">dellemc.enterprise_sonic</span></code>.</p>
+<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">dellemc.enterprise_sonic.sonic_ldap</span></code>.</p>
+</div>
+<p class="ansible-version-added">New in dellemc.enterprise_sonic 2.5.0</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id3">Notes</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id4">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id5">Return Values</a></p></li>
+</ul>
+</nav>
+<section id="synopsis">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This module provides configuration management of global LDAP server parameters on devices running SONiC.</p></li>
+<li><p>Configure VRF instance before configuring VRF to be used for LDAP server connection.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config"><strong>config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Specifies the LDAP server related configuration.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/base"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-base"><strong>base</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/base" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure base distinguished name.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/bind_timelimit"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-bind-timelimit"><strong>bind_timelimit</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/bind_timelimit" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure connect time limit (0 to 65535).</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/binddn"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-binddn"><strong>binddn</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/binddn" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure distinguished name to bind.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/bindpw"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-bindpw"><strong>bindpw</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/bindpw" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure credentials to bind</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/bindpw/encrypted"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-bindpw-encrypted"><strong>encrypted</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/bindpw/encrypted" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Indicates whether the password is encrypted text.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/bindpw/pwd"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-bindpw-pwd"><strong>pwd</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/bindpw/pwd" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Authentication password for the bind.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/idle_timelimit"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-idle-timelimit"><strong>idle_timelimit</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/idle_timelimit" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS idle time limit (0 to 65535).</p>
+<p>Applicable only for global and nss.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map"><strong>map</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure LDAP server for map.</p>
+<p>Applicable only for global.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/attribute"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-attribute"><strong>attribute</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/attribute" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure attribute map.</p>
+<p><em>from</em> and <em>to</em> are required together.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/attribute/from"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-attribute-from"><strong>from</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/attribute/from" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure attribute map key.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/attribute/to"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-attribute-to"><strong>to</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/attribute/to" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure attribute map value.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/default_attribute"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-default-attribute"><strong>default_attribute</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/default_attribute" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure default attribute map.</p>
+<p><em>from</em> and <em>to</em> are required together.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/default_attribute/from"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-default-attribute-from"><strong>from</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/default_attribute/from" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure default attribute map key.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/default_attribute/to"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-default-attribute-to"><strong>to</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/default_attribute/to" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure default attribute map value.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/map_remote_groups_to_sonic_roles"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-map-remote-groups-to-sonic-roles"><strong>map_remote_groups_to_sonic_roles</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/map_remote_groups_to_sonic_roles" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure mapping for remote groups to sonic roles.</p>
+<p><em>remote_group</em> and <em>sonic_roles</em> are required together.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/map_remote_groups_to_sonic_roles/remote_group"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-map-remote-groups-to-sonic-roles-remote-group"><strong>remote_group</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/map_remote_groups_to_sonic_roles/remote_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Map remote groups to SONiC roles.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/map_remote_groups_to_sonic_roles/sonic_roles"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-map-remote-groups-to-sonic-roles-sonic-roles"><strong>sonic_roles</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/map_remote_groups_to_sonic_roles/sonic_roles" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure SONiC roles.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;admin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;operator&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;netadmin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;secadmin&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/objectclass"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-objectclass"><strong>objectclass</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/objectclass" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure Objectclass map.</p>
+<p><em>from</em> and <em>to</em> are required together.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/objectclass/from"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-objectclass-from"><strong>from</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/objectclass/from" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure Objectclass map key.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/objectclass/to"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-objectclass-to"><strong>to</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/objectclass/to" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure Objectclass map value.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/override_attribute"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-override-attribute"><strong>override_attribute</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/override_attribute" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure override attribute map.</p>
+<p><em>from</em> and <em>to</em> are required together.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/override_attribute/from"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-override-attribute-from"><strong>from</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/override_attribute/from" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure override attribute map key.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/map/override_attribute/to"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-map-override-attribute-to"><strong>to</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/map/override_attribute/to" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure override attribute map value.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the LDAP type.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;global&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;nss&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;pam&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sudo&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/nss_base_group"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-nss-base-group"><strong>nss_base_group</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/nss_base_group" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS search base for group map.</p>
+<p>Applicable only for global and nss.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/nss_base_netgroup"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-nss-base-netgroup"><strong>nss_base_netgroup</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/nss_base_netgroup" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS search base for netgroup map.</p>
+<p>Applicable only for global and nss.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/nss_base_passwd"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-nss-base-passwd"><strong>nss_base_passwd</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/nss_base_passwd" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS search base for passwd map.</p>
+<p>Applicable only for global, nss and pam.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/nss_base_shadow"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-nss-base-shadow"><strong>nss_base_shadow</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/nss_base_shadow" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS search base for shadow map.</p>
+<p>Applicable only for global and nss.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/nss_base_sudoers"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-nss-base-sudoers"><strong>nss_base_sudoers</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/nss_base_sudoers" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS search base for sudoers map.</p>
+<p>Applicable only for global and nss.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/nss_initgroups_ignoreusers"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-nss-initgroups-ignoreusers"><strong>nss_initgroups_ignoreusers</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/nss_initgroups_ignoreusers" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS init groups ignore users.</p>
+<p>Applicable only for global and nss.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/nss_skipmembers"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-nss-skipmembers"><strong>nss_skipmembers</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/nss_skipmembers" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure NSS skipmembers</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/pam_filter"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-pam-filter"><strong>pam_filter</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/pam_filter" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure PAM filter.</p>
+<p>Applicable only for global and pam.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/pam_group_dn"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-pam-group-dn"><strong>pam_group_dn</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/pam_group_dn" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure PAM Group Distinguished name.</p>
+<p>Applicable only for global and pam.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/pam_login_attribute"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-pam-login-attribute"><strong>pam_login_attribute</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/pam_login_attribute" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure PAM Login attribute.</p>
+<p>Applicable only for global and pam.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/pam_member_attribute"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-pam-member-attribute"><strong>pam_member_attribute</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/pam_member_attribute" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure PAM Member attribute.</p>
+<p>Applicable only for global and pam.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/port"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-port"><strong>port</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/port" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure server port (1 to 65535).</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/retry"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-retry"><strong>retry</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/retry" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure retransmit attempt (0 to 10).</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/scope"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-scope"><strong>scope</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/scope" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure the search scope.</p>
+<p>Applicable only for global, nss and pam.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sub&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;one&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;base&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/security_profile"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-security-profile"><strong>security_profile</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/security_profile" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure security profile for LDAP.</p>
+<p>Applicable only for global.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-servers"><strong>servers</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure host name or IP address for a LDAP server.</p>
+<p>Applicable only for global.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/address"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-servers-address"><strong>address</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Hostname or IP address of LDAP server.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/port"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-servers-port"><strong>port</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/port" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure server port number (1 to 65535).</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/priority"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-servers-priority"><strong>priority</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/priority" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure priority (1 to 99).</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/retry"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-servers-retry"><strong>retry</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/retry" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure retransmit attempt (0 to 10).</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/server_type"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-servers-server-type"><strong>server_type</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/server_type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure server type.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;nss&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sudo&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;pam&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;nss_sudo&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;nss_pam&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sudo_pam&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/ssl"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-servers-ssl"><strong>ssl</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/ssl" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure TLS configuration.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;start_tls&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/source_interface"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-source-interface"><strong>source_interface</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/source_interface" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure source interface to be used as source IP for the LDAP packets.</p>
+<p>Applicable only for global.</p>
+<p>Full name of the Layer 3 interface, i.e. Eth1/1.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ssl"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-ssl"><strong>ssl</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ssl" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure TLS configuration.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;start_tls&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/sudoers_base"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-sudoers-base"><strong>sudoers_base</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/sudoers_base" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure sudo base distinguished name for queries.</p>
+<p>Applicable only for global and sudo.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/sudoers_search_filter"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-sudoers-search-filter"><strong>sudoers_search_filter</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/sudoers_search_filter" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure sudo search filter for queries.</p>
+<p>Applicable only for global and sudo.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/timelimit"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-timelimit"><strong>timelimit</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/timelimit" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure search time limit (1 to 65535).</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/version"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-version"><strong>version</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/version" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure LDAP version 2 or 3.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">3</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/vrf"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-config-vrf"><strong>vrf</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/vrf" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Configure VRF to be used for LDAP server connection.</p>
+<p>Applicable only for global.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-state"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-parameter-state"><strong>state</strong></p>
+<a class="ansibleOptionLink" href="#parameter-state" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Specifies the operation to be performed on the LDAP server configured on the device.</p>
+<p>In case of merged, the input configuration will be merged with the existing LDAP server configuration on the device.</p>
+<p>In case of deleted, the existing LDAP server configuration will be removed from the device.</p>
+<p>In case of overridden, all the existing LDAP server configuration will be deleted and the specified input configuration will be installed.</p>
+<p>In case of replaced, the existing LDAP server configuration on the device will be replaced by the configuration in the playbook for each LDAP server group configured by the playbook.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;merged&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;deleted&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;replaced&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;overridden&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notes">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Supports <code class="docutils literal notranslate"><span class="pre">check_mode</span></code>.</p></li>
+</ul>
+</div>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using &quot;deleted&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration vrf Vrf_1</span>
+<span class="c1"># !</span>
+<span class="c1"># ip vrf Vrf_1</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss-base-passwd password</span>
+<span class="c1"># ldap-server nss-initgroups-ignoreusers username1</span>
+<span class="c1"># ldap-server nss scope sub</span>
+<span class="c1"># ldap-server nss timelimit 15</span>
+<span class="c1"># ldap-server nss idle-timelimit 25</span>
+<span class="c1"># ldap-server nss nss-base-group group1</span>
+<span class="c1"># ldap-server nss nss-base-sudoers sudo1</span>
+<span class="c1"># ldap-server pam base admin</span>
+<span class="c1"># ldap-server pam binddn CN=example.com</span>
+<span class="c1"># ldap-server pam pam-login-attribute loginattrstring</span>
+<span class="c1"># ldap-server sudo retry 10</span>
+<span class="c1"># ldap-server sudo ssl start_tls</span>
+<span class="c1"># ldap-server sudo bind-timelimit 15</span>
+<span class="c1"># ldap-server vrf Vrf_1</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host 20.20.20.10 retry 1</span>
+<span class="c1"># ldap-server host example.com priority 10 ssl off</span>
+<span class="c1"># ldap-server map default-attribute-value attr1 to attr2</span>
+<span class="c1"># ldap-server map default-attribute-value attr3 to attr4</span>
+<span class="c1"># ldap-server map objectclass attr1 to attr3</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete the LDAP server configurations</span>
+<span class="w">  </span><span class="nt">sonic_ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;global&quot;</span>
+<span class="w">        </span><span class="nt">servers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span>
+<span class="w">        </span><span class="nt">vrf</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Vrf_1&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nss&quot;</span>
+<span class="w">        </span><span class="nt">idle_timelimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sub&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sudo&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss-base-passwd password</span>
+<span class="c1"># ldap-server nss-initgroups-ignoreusers username1</span>
+<span class="c1"># ldap-server nss timelimit 15</span>
+<span class="c1"># ldap-server nss nss-base-group group1</span>
+<span class="c1"># ldap-server nss nss-base-sudoers sudo1</span>
+<span class="c1"># ldap-server pam base admin</span>
+<span class="c1"># ldap-server pam binddn CN=example.com</span>
+<span class="c1"># ldap-server pam pam-login-attribute loginattrstring</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host 20.20.20.10 retry 1</span>
+<span class="c1"># ldap-server map default-attribute-value attr1 to attr2</span>
+<span class="c1"># ldap-server map default-attribute-value attr3 to attr4</span>
+<span class="c1"># ldap-server map objectclass attr1 to attr3</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;merged&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration vrf Vrf_1</span>
+<span class="c1"># !</span>
+<span class="c1"># ip vrf Vrf_1</span>
+<span class="c1"># !</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add the LDAP server configurations</span>
+<span class="w">  </span><span class="nt">sonic_ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;global&quot;</span>
+<span class="w">        </span><span class="nt">servers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span>
+<span class="w">            </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">            </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.10.10.1&quot;</span>
+<span class="w">            </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1550</span>
+<span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">389</span>
+<span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">nss_base_passwd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pam&quot;</span>
+<span class="w">        </span><span class="nt">base</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;admin&quot;</span>
+<span class="w">        </span><span class="nt">binddn</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CN=example.com&quot;</span>
+<span class="w">        </span><span class="nt">pam_login_attribute</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;loginattrstring&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sudo&quot;</span>
+<span class="w">        </span><span class="nt">bind_timelimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">        </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merged</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss-base-passwd password</span>
+<span class="c1"># ldap-server pam base admin</span>
+<span class="c1"># ldap-server pam binddn CN=example.com</span>
+<span class="c1"># ldap-server pam pam-login-attribute loginattrstring</span>
+<span class="c1"># ldap-server sudo retry 10</span>
+<span class="c1"># ldap-server sudo bind-timelimit 20</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host example.com priority 10 ssl on</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;merged&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration vrf Vrf_1</span>
+<span class="c1"># !</span>
+<span class="c1"># ip vrf Vrf_1</span>
+<span class="c1"># !</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss-base-passwd password</span>
+<span class="c1"># ldap-server pam base admin</span>
+<span class="c1"># ldap-server pam binddn CN=example.com</span>
+<span class="c1"># ldap-server pam pam-login-attribute loginattrstring</span>
+<span class="c1"># ldap-server sudo retry 10</span>
+<span class="c1"># ldap-server sudo bind-timelimit 20</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host example.com priority 10 ssl on</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add the LDAP server configurations</span>
+<span class="w">  </span><span class="nt">sonic_ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;global&quot;</span>
+<span class="w">        </span><span class="nt">servers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span>
+<span class="w">            </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;off&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;20.20.20.10&quot;</span>
+<span class="w">            </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">        </span><span class="nt">nss_base_passwd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">        </span><span class="nt">pam_login_attribute</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;globallogin&quot;</span>
+<span class="w">        </span><span class="nt">nss_initgroups_ignoreusers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;username1&quot;</span>
+<span class="w">        </span><span class="nt">vrf</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Vrf_1&quot;</span>
+<span class="w">        </span><span class="nt">map</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">default_attribute</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr1&quot;</span>
+<span class="w">              </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr2&quot;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr3&quot;</span>
+<span class="w">              </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr4&quot;</span>
+<span class="w">          </span><span class="nt">objectclass</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr1&quot;</span>
+<span class="w">              </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr3&quot;</span>
+<span class="w">          </span><span class="nt">map_remote_groups_to_sonic_roles</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">remote_group</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;group1&quot;</span>
+<span class="w">              </span><span class="nt">sonic_roles</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operator</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nss&quot;</span>
+<span class="w">        </span><span class="nt">nss_base_netgroup</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;group1&quot;</span>
+<span class="w">        </span><span class="nt">idle_timelimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25</span>
+<span class="w">        </span><span class="nt">timelimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sub&quot;</span>
+<span class="w">        </span><span class="nt">nss_base_sudoers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sudo1&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sudo&quot;</span>
+<span class="w">        </span><span class="nt">bind_timelimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
+<span class="w">        </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;start_tls&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merged</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss-base-passwd password</span>
+<span class="c1"># ldap-server pam-login-attribute globallogin</span>
+<span class="c1"># ldap-server nss-initgroups-ignoreusers username1</span>
+<span class="c1"># ldap-server nss scope sub</span>
+<span class="c1"># ldap-server nss timelimit 15</span>
+<span class="c1"># ldap-server nss idle-timelimit 25</span>
+<span class="c1"># ldap-server nss nss-base-group group1</span>
+<span class="c1"># ldap-server nss nss-base-sudoers sudo1</span>
+<span class="c1"># ldap-server pam base admin</span>
+<span class="c1"># ldap-server pam binddn CN=example.com</span>
+<span class="c1"># ldap-server pam pam-login-attribute loginattrstring</span>
+<span class="c1"># ldap-server sudo retry 10</span>
+<span class="c1"># ldap-server sudo ssl start_tls</span>
+<span class="c1"># ldap-server sudo bind-timelimit 15</span>
+<span class="c1"># ldap-server vrf Vrf_1</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host 20.20.20.10 retry 1</span>
+<span class="c1"># ldap-server host example.com priority 10 ssl off</span>
+<span class="c1"># ldap-server map default-attribute-value attr1 to attr2</span>
+<span class="c1"># ldap-server map default-attribute-value attr3 to attr4</span>
+<span class="c1"># ldap-server map objectclass attr1 to attr3</span>
+<span class="c1"># ldap-server map remote-groups-override-to-sonic-roles group1 to admin,operator</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;replaced&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration vrf Vrf_1</span>
+<span class="c1"># !</span>
+<span class="c1"># ip vrf Vrf_1</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss-base-passwd password</span>
+<span class="c1"># ldap-server nss-initgroups-ignoreusers username1</span>
+<span class="c1"># ldap-server nss idle-timelimit 25</span>
+<span class="c1"># ldap-server nss nss-base-group group1</span>
+<span class="c1"># ldap-server nss nss-base-sudoers sudo1</span>
+<span class="c1"># ldap-server pam base admin</span>
+<span class="c1"># ldap-server pam binddn CN=example.com</span>
+<span class="c1"># ldap-server pam pam-login-attribute loginattrstring</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host 20.20.20.10 retry 1</span>
+<span class="c1"># ldap-server map default-attribute-value attr1 to attr2</span>
+<span class="c1"># ldap-server map default-attribute-value attr3 to attr4</span>
+<span class="c1"># ldap-server map objectclass attr1 to attr3</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace the LDAP server configurations</span>
+<span class="w">  </span><span class="nt">sonic_ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nss&quot;</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;one&quot;</span>
+<span class="w">        </span><span class="nt">bindpw</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">pwd</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;password&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pam&quot;</span>
+<span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">        </span><span class="nt">timelimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">        </span><span class="nt">pam_group_dn</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DNAME&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sudo&quot;</span>
+<span class="w">        </span><span class="nt">sudoers_search_filter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;filter1&quot;</span>
+<span class="w">        </span><span class="nt">base</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;base_name&quot;</span>
+<span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replaced</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss scope one</span>
+<span class="c1"># ldap-server nss bindpw U2FsdGVkX1+t8PR9IIi+qjZpYoNwjmd78D1WDBdkLxs= encrypted</span>
+<span class="c1"># ldap-server pam version 3</span>
+<span class="c1"># ldap-server pam port 2000</span>
+<span class="c1"># ldap-server pam timelimit 20</span>
+<span class="c1"># ldap-server pam pam-group-dn DNAME</span>
+<span class="c1"># ldap-server sudo version 3</span>
+<span class="c1"># ldap-server sudo base base_name</span>
+<span class="c1"># ldap-server sudo sudoers-search-filter filter1</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host 20.20.20.10 retry 1</span>
+<span class="c1"># ldap-server map default-attribute-value attr1 to attr2</span>
+<span class="c1"># ldap-server map default-attribute-value attr3 to attr4</span>
+<span class="c1"># ldap-server map objectclass attr1 to attr3</span>
+<span class="c1"># sonic#</span>
+
+
+<span class="c1"># Using &quot;overridden&quot; state</span>
+<span class="c1">#</span>
+<span class="c1"># Before state:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration vrf Vrf_1</span>
+<span class="c1"># !</span>
+<span class="c1"># ip vrf Vrf_1</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server port 389</span>
+<span class="c1"># ldap-server version 2</span>
+<span class="c1"># ldap-server nss scope one</span>
+<span class="c1"># ldap-server nss bindpw U2FsdGVkX1+t8PR9IIi+qjZpYoNwjmd78D1WDBdkLxs= encrypted</span>
+<span class="c1"># ldap-server pam version 3</span>
+<span class="c1"># ldap-server pam port 2000</span>
+<span class="c1"># ldap-server pam timelimit 20</span>
+<span class="c1"># ldap-server pam pam-group-dn DNAME</span>
+<span class="c1"># ldap-server sudo version 3</span>
+<span class="c1"># ldap-server sudo base base_name</span>
+<span class="c1"># ldap-server sudo sudoers-search-filter filter1</span>
+<span class="c1"># ldap-server host 10.10.10.1 port 1550 priority 5</span>
+<span class="c1"># ldap-server host 20.20.20.10 retry 1</span>
+<span class="c1"># ldap-server map default-attribute-value attr1 to attr2</span>
+<span class="c1"># ldap-server map default-attribute-value attr3 to attr4</span>
+<span class="c1"># ldap-server map objectclass attr1 to attr3</span>
+<span class="c1"># sonic#</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Override the LDAP server configurations</span>
+<span class="w">  </span><span class="nt">sonic_ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;global&quot;</span>
+<span class="w">        </span><span class="nt">source_interface</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Eth1/1&quot;</span>
+<span class="w">        </span><span class="nt">security_profile</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
+<span class="w">        </span><span class="nt">vrf</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Vrf_1&quot;</span>
+<span class="w">        </span><span class="nt">servers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;client.com&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;host.com&quot;</span>
+<span class="w">            </span><span class="nt">server_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sudo_pam&quot;</span>
+<span class="w">        </span><span class="nt">map</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">override_attribute</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr1&quot;</span>
+<span class="w">              </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;attr2&quot;</span>
+<span class="w">          </span><span class="nt">map_remote_groups_to_sonic_roles</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">remote_group</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;group1&quot;</span>
+<span class="w">              </span><span class="nt">sonic_roles</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operator</span>
+<span class="w">        </span><span class="nt">idle_timelimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pam&quot;</span>
+<span class="w">        </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;off&quot;</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;base&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">overridden</span>
+
+<span class="c1"># After state:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep ldap</span>
+<span class="c1"># ldap-server idle-timelimit 20</span>
+<span class="c1"># ldap-server pam ssl off</span>
+<span class="c1"># ldap-server pam scope base</span>
+<span class="c1"># ldap-server source-interface Eth1/1</span>
+<span class="c1"># ldap-server security-profile default</span>
+<span class="c1"># ldap-server vrf Vrf_1</span>
+<span class="c1"># ldap-server host client.com</span>
+<span class="c1"># ldap-server host host.com use-type sudo_pam</span>
+<span class="c1"># ldap-server map override-attribute-value attr1 to attr2</span>
+<span class="c1"># ldap-server map remote-groups-override-to-sonic-roles group1 to admin,operator</span>
+<span class="c1"># sonic#</span>
+</pre></div>
+</div>
+</section>
+<section id="return-values">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<p>Common return values are documented <a class="reference external" href="https://docs.ansible.com/ansible/devel/reference_appendices/common_return_values.html#common-return-values" title="(in Ansible vdevel)"><span class="xref std std-ref">here</span></a>, the following are the fields unique to this module:</p>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-return-after"><strong>after</strong></p>
+<a class="ansibleOptionLink" href="#return-after" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The resulting configuration module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when changed</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format\n</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after%28generated%29"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-return-after-generated"><strong>after(generated)</strong></p>
+<a class="ansibleOptionLink" href="#return-after%28generated%29" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The generated configuration module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when <code class="docutils literal notranslate"><span class="pre">check_mode</span></code></p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format\n</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-before"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-return-before"><strong>before</strong></p>
+<a class="ansibleOptionLink" href="#return-before" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The configuration prior to the module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format\n</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-commands"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ldap-module-return-commands"><strong>commands</strong></p>
+<a class="ansibleOptionLink" href="#return-commands" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The set of commands pushed to the remote device.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;command</span> <span class="pre">1&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">2&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">3&quot;]</span></code></p>
+</div></td>
+</tr>
+</tbody>
+</table>
+<section id="authors">
+<h3>Authors<a class="headerlink" href="#authors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Santhosh Kumar T(&#64;santhosh-kt)</p></li>
+</ul>
+</section>
+<section id="collection-links">
+<h3>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h3>
+<ul class="ansible-links">
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sonic_lag_interfaces_module.html" class="btn btn-neutral float-left" title="dellemc.enterprise_sonic.sonic_lag_interfaces module – Manage link aggregation group (LAG) interface parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sonic_lldp_global_module.html" class="btn btn-neutral float-right" title="dellemc.enterprise_sonic.sonic_lldp_global module – Manage Global LLDP configurations on SONiC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright dellemc.enterprise_sonic Contributors.</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+</body>
+</html>
