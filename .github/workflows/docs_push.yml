@@ -19,7 +19,7 @@ jobs:
     uses: ansible-community/github-docs-build/.github/workflows/_shared-docs-build-push.yml@main
     with:
       collection-name: dellemc.enterprise_sonic
-      init-lenient: false
+      init-lenient: true
       init-fail-on-error: true
       squash-hierarchy: true
       init-project: dellemc.enterprise_sonic Collection
