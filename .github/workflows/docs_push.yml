@@ -1,0 +1,46 @@
+---
+name: Publish collection docs
+concurrency:
+  group: docs-push-${{ github.sha }}
+  cancel-in-progress: true
+on:
+  push:
+    branches:
+      - doc_workflow
+    tags:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  build-docs:
+    permissions:
+      contents: read
+    name: Build Ansible Docs
+    uses: ansible-community/github-docs-build/.github/workflows/_shared-docs-build-push.yml@main
+    with:
+      collection-name: dellemc.enterprise_sonic
+      init-lenient: false
+      init-fail-on-error: true
+      squash-hierarchy: true
+      init-project: dellemc.enterprise_sonic Collection
+      init-copyright: dellemc.enterprise_sonic Contributors
+      init-title: dellemc.enterprise_sonic Documentation
+      init-html-short-title: dellemc.enterprise_sonic Collection Docs
+      init-extra-html-theme-options: |
+        documentation_home_url=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/branch/doc_workflow/
+
+  publish-docs-gh-pages:
+    # for now we won't run this on forks
+    if: github.repository == 'ArunSaravananBalachandran/dellemc.enterprise_sonic'
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    needs: [build-docs]
+    name: Publish Ansible Docs
+    uses: ansible-community/github-docs-build/.github/workflows/_shared-docs-build-publish-gh-pages.yml@main
+    with:
+      artifact-name: ${{ needs.build-docs.outputs.artifact-name }}
+      publish-gh-pages-branch: true
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
