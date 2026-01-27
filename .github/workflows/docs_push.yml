@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - doc_workflow
-  workflow_dispatch:
 
 jobs:
   build-docs:
