@@ -4,12 +4,12 @@
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.16.3" name="antsibull-docs" />
+<meta content="2.24.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server and its parameters &mdash; dellemc.enterprise_sonic Collection  documentation</title>
+  <title>dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server configuration on SONiC &mdash; dellemc.enterprise_sonic Collection  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
-      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=b54c304f" />
       <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
       <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
 
@@ -18,8 +18,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=7f41d439"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="dellemc.enterprise_sonic.sonic_roce module – Manage RoCE QoS configuration on SONiC" href="sonic_roce_module.html" />
@@ -74,9 +74,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
   
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sonic_module.html">dellemc.enterprise_sonic.sonic module – A dummy module for the sonic action plugin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_aaa_module.html">dellemc.enterprise_sonic.sonic_aaa module – Manage AAA configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_acl_interfaces_module.html">dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_api_module.html">dellemc.enterprise_sonic.sonic_api module – Manages REST operations on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ars_module.html">dellemc.enterprise_sonic.sonic_ars module – Manage adaptive routing and switching (ARS) configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_bfd_module.html">dellemc.enterprise_sonic.sonic_bfd module – Manage BFD configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_bgp_module.html">dellemc.enterprise_sonic.sonic_bgp module – Manage global BGP and its parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_bgp_af_module.html">dellemc.enterprise_sonic.sonic_bgp_af module – Manage global BGP address-family and its parameters</a></li>
@@ -85,17 +87,27 @@
 <li class="toctree-l1"><a class="reference internal" href="sonic_bgp_ext_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_ext_communities module – Manage BGP extended community-list and its parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors module – Manage a BGP neighbor and its parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_af_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors_af module – Manage the BGP neighbor address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_br_l2pt_module.html">dellemc.enterprise_sonic.sonic_br_l2pt module – Manage L2PT configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_command_module.html">dellemc.enterprise_sonic.sonic_command module – Runs commands on devices running Enterprise SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_config_module.html">dellemc.enterprise_sonic.sonic_config module – Manages configuration sections on devices running Enterprise SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_copp_module.html">dellemc.enterprise_sonic.sonic_copp module – Manage CoPP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dcbx_module.html">dellemc.enterprise_sonic.sonic_dcbx module – Manage DCBx configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_relay_module.html">dellemc.enterprise_sonic.sonic_dhcp_relay module – Manage DHCP and DHCPv6 relay configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_snooping_module.html">dellemc.enterprise_sonic.sonic_dhcp_snooping module – Manage DHCP Snooping on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_drop_counter_module.html">dellemc.enterprise_sonic.sonic_drop_counter module – Manage drop counter configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ecmp_load_share_module.html">dellemc.enterprise_sonic.sonic_ecmp_load_share module – IP ECMP load share mode configuration handling for SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_evpn_esi_multihome_module.html">dellemc.enterprise_sonic.sonic_evpn_esi_multihome module – Manage EVPN ESI multihoming configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_facts_module.html">dellemc.enterprise_sonic.sonic_facts module – Collects facts on devices running Enterprise SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_fbs_classifiers_module.html">dellemc.enterprise_sonic.sonic_fbs_classifiers module – Manage flow based services (FBS) classifiers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_groups_module.html">dellemc.enterprise_sonic.sonic_fbs_groups module – Manage flow based services (FBS) groups configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_interfaces_module.html">dellemc.enterprise_sonic.sonic_fbs_interfaces module – Manage flow based services (FBS) interfaces configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_policies_module.html">dellemc.enterprise_sonic.sonic_fbs_policies module – Manage flow based services (FBS) policies configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_fips_module.html">dellemc.enterprise_sonic.sonic_fips module – Manage FIPS configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_image_management_module.html">dellemc.enterprise_sonic.sonic_image_management module – Manage installation of Enterprise SONiC image, software patch and firmware updater</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_interfaces_module.html">dellemc.enterprise_sonic.sonic_interfaces module – Configure Interface attributes on interfaces such as, Eth, LAG, VLAN, and loopback. (create a loopback interface if it does not exist.)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_ip_neighbor_module.html">dellemc.enterprise_sonic.sonic_ip_neighbor module – Manage IP neighbor global configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ip_neighbor_interfaces_module.html">dellemc.enterprise_sonic.sonic_ip_neighbor_interfaces module – Manage interface-specific IP neighbor configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ipv6_router_advertisement_module.html">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement module – Manage interface-specific IPv6 Router Advertisement configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_l2_acls_module.html">dellemc.enterprise_sonic.sonic_l2_acls module – Manage Layer 2 access control lists (ACL) configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_l2_interfaces_module.html">dellemc.enterprise_sonic.sonic_l2_interfaces module – Configure interface-to-VLAN association that is based on access or trunk mode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_l3_acls_module.html">dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC</a></li>
@@ -109,26 +121,34 @@
 <li class="toctree-l1"><a class="reference internal" href="sonic_lst_module.html">dellemc.enterprise_sonic.sonic_lst module – Manage link state tracking (LST) configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_mac_module.html">dellemc.enterprise_sonic.sonic_mac module – Manage MAC configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_mclag_module.html">dellemc.enterprise_sonic.sonic_mclag module – Manage multi chassis link aggregation groups domain (MCLAG) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mfa_module.html">dellemc.enterprise_sonic.sonic_mfa module – Manage Multi-factor authentication (MFA) configurations on SONiC.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_mgmt_servers_module.html">dellemc.enterprise_sonic.sonic_mgmt_servers module – Manage management servers configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_mirroring_module.html">dellemc.enterprise_sonic.sonic_mirroring module – Manage port mirroring configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_network_policy_module.html">dellemc.enterprise_sonic.sonic_network_policy module – Manage network policy configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_ntp_module.html">dellemc.enterprise_sonic.sonic_ntp module – Manage NTP configuration on SONiC.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_ospf_area_module.html">dellemc.enterprise_sonic.sonic_ospf_area module – configure OSPF area settings on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_module.html">dellemc.enterprise_sonic.sonic_ospfv2 module – Configure global OSPFv2 protocol settings on SONiC.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_interfaces_module.html">dellemc.enterprise_sonic.sonic_ospfv2_interfaces module – Configure OSPFv2 interface mode protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv3_module.html">dellemc.enterprise_sonic.sonic_ospfv3 module – Configure global OSPFv3 protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv3_area_module.html">dellemc.enterprise_sonic.sonic_ospfv3_area module – Configure OSPFv3 area settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv3_interfaces_module.html">dellemc.enterprise_sonic.sonic_ospfv3_interfaces module – Configure OSPFv3 interface mode protocol settings on SONiC.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_pim_global_module.html">dellemc.enterprise_sonic.sonic_pim_global module – Manage global PIM configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_pim_interfaces_module.html">dellemc.enterprise_sonic.sonic_pim_interfaces module – Manage interface-specific PIM configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_pki_module.html">dellemc.enterprise_sonic.sonic_pki module – Manages PKI attributes of Enterprise Sonic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pms_module.html">dellemc.enterprise_sonic.sonic_pms module – Configure interface mode port security settings on SONiC.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_poe_module.html">dellemc.enterprise_sonic.sonic_poe module – Manage PoE configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_port_breakout_module.html">dellemc.enterprise_sonic.sonic_port_breakout module – Configure port breakout settings on physical interfaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_port_group_module.html">dellemc.enterprise_sonic.sonic_port_group module – Manages port group configuration on SONiC.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_prefix_lists_module.html">dellemc.enterprise_sonic.sonic_prefix_lists module – prefix list configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ptp_default_ds_module.html">dellemc.enterprise_sonic.sonic_ptp_default_ds module – Manage global PTP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ptp_port_ds_module.html">dellemc.enterprise_sonic.sonic_ptp_port_ds module – Manage port specific PTP configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_qos_buffer_module.html">dellemc.enterprise_sonic.sonic_qos_buffer module – Manage QoS buffer configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_qos_interfaces_module.html">dellemc.enterprise_sonic.sonic_qos_interfaces module – Manage QoS interfaces configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_qos_maps_module.html">dellemc.enterprise_sonic.sonic_qos_maps module – Manage QoS maps configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_qos_pfc_module.html">dellemc.enterprise_sonic.sonic_qos_pfc module – Manage QoS PFC configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_qos_scheduler_module.html">dellemc.enterprise_sonic.sonic_qos_scheduler module – Manage QoS scheduler configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_qos_wred_module.html">dellemc.enterprise_sonic.sonic_qos_wred module – Manage QoS WRED profiles configuration on SONiC</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server and its parameters</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server configuration on SONiC</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
@@ -144,6 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sonic_route_maps_module.html">dellemc.enterprise_sonic.sonic_route_maps module – route map configuration handling for SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_sflow_module.html">dellemc.enterprise_sonic.sonic_sflow module – configure sflow settings on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_ssh_module.html">dellemc.enterprise_sonic.sonic_ssh module – Manage SSH configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ssh_server_module.html">dellemc.enterprise_sonic.sonic_ssh_server module – Manage SSH server configurations on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_static_routes_module.html">dellemc.enterprise_sonic.sonic_static_routes module – Manage static routes configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_stp_module.html">dellemc.enterprise_sonic.sonic_stp module – Manage STP configuration on SONiC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_system_module.html">dellemc.enterprise_sonic.sonic_system module – Configure system parameters</a></li>
@@ -153,7 +174,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sonic_vlans_module.html">dellemc.enterprise_sonic.sonic_vlans module – Manage VLAN and its parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_vrfs_module.html">dellemc.enterprise_sonic.sonic_vrfs module – Manage VRFs and associate VRFs to interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sonic_vrrp_module.html">dellemc.enterprise_sonic.sonic_vrrp module – Configure VRRP protocol settings on SONiC.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sonic_vxlans_module.html">dellemc.enterprise_sonic.sonic_vxlans module – Manage VxLAN EVPN and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vxlans_module.html">dellemc.enterprise_sonic.sonic_vxlans module – Manage VXLAN configuration on SONiC</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sonic_cliconf.html">dellemc.enterprise_sonic.sonic cliconf – Use sonic cliconf to run command on Dell SONiC platforms</a></li>
@@ -177,7 +198,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server and its parameters</li>
+      <li class="breadcrumb-item active">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server configuration on SONiC</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -188,11 +209,11 @@
   
            <div itemprop="articleBody">
              
-  <span class="target" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module"></span><section id="dellemc-enterprise-sonic-sonic-radius-server-module-manage-radius-server-and-its-parameters">
-<h1>dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server and its parameters<a class="headerlink" href="#dellemc-enterprise-sonic-sonic-radius-server-module-manage-radius-server-and-its-parameters" title="Link to this heading"></a></h1>
+  <span class="target" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module"></span><section id="dellemc-enterprise-sonic-sonic-radius-server-module-manage-radius-server-configuration-on-sonic">
+<h1>dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server configuration on SONiC<a class="headerlink" href="#dellemc-enterprise-sonic-sonic-radius-server-module-manage-radius-server-configuration-on-sonic" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/dellemc/enterprise_sonic/">dellemc.enterprise_sonic collection</a> (version 3.0.0).</p>
+<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/dellemc/enterprise_sonic/">dellemc.enterprise_sonic collection</a> (version 4.0.0).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it, use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">dellemc.enterprise_sonic</span></code>.</p>
@@ -211,7 +232,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <section id="synopsis">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>This module provides configuration management of radius server parameters on devices running Enterprise SONiC.</p></li>
+<li><p>This module provides configuration management of radius server for devices running Enterprise SONiC.</p></li>
 </ul>
 </section>
 <section id="parameters">
@@ -235,9 +256,10 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-config/auth_type" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the authentication type of the radius server.</p>
+<p>The default is <code class="docutils literal notranslate"><span class="pre">pap</span></code>.</p>
 <p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
 <ul class="simple">
-<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;pap&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;pap&quot;</span></code></p></li>
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;chap&quot;</span></code></p></li>
 <li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;mschapv2&quot;</span></code></p></li>
 </ul>
@@ -262,6 +284,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-config/retransmit" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the re-transmit value of the radius server.</p>
+<p>The range is 0 to 10.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -300,7 +323,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-config/servers/host/name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-parameter-config-servers-host-name"><strong>name</strong></p>
-<a class="ansibleOptionLink" href="#parameter-config/servers/host/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/host/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the IP address or name of the radius server host.</p>
 </div></td>
@@ -310,7 +333,8 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-config/servers/host/port" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the port of the radius server host.</p>
-<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">1812</span></code></p>
+<p>The range is 1 to 65535.</p>
+<p>The default is 1812.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -318,13 +342,37 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-config/servers/host/priority" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the priority of the radius server host.</p>
+<p>The range is 1 to 64.</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/host/protocol"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-parameter-config-servers-host-protocol"><strong>protocol</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/host/protocol" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<p><em class="ansible-option-versionadded">added in dellemc.enterprise_sonic 4.0.0</em></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the protocol of the radius server host.</p>
+<p>The functional default is <code class="docutils literal notranslate"><span class="pre">UDP</span></code>.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;TLS&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;UDP&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-config/servers/host/retransmit"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-parameter-config-servers-host-retransmit"><strong>retransmit</strong></p>
 <a class="ansibleOptionLink" href="#parameter-config/servers/host/retransmit" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the retransmit of the radius server host.</p>
+<p>The range is 0 to 10.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/servers/host/security_profile"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-parameter-config-servers-host-security-profile"><strong>security_profile</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/servers/host/security_profile" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<p><em class="ansible-option-versionadded">added in dellemc.enterprise_sonic 4.0.0</em></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the security profile for the radius server host.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -339,6 +387,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-config/servers/host/timeout" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the timeout of the radius server host.</p>
+<p>The range is 3 to 60.</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -365,7 +414,8 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <a class="ansibleOptionLink" href="#parameter-config/timeout" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the timeout of the radius server.</p>
-<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">5</span></code></p>
+<p>The range is 3 to 60.</p>
+<p>The default is 5.</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
@@ -406,52 +456,33 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <span class="c1"># Before state:</span>
 <span class="c1"># -------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># nas-ip-addr: 1.2.3.4</span>
-<span class="c1"># statistics : True</span>
-<span class="c1"># timeout    : 10</span>
-<span class="c1"># auth-type  : chap</span>
-<span class="c1"># key        : chap</span>
-<span class="c1"># retransmit : 3</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># HOST            AUTH-TYPE KEY       AUTH-PORT PRIORITY TIMEOUT RTSMT VRF   SI</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># hostx.local     mschapv2  local     52        2        20      2     mgmt  Ethernet12</span>
-<span class="c1"># myhost.dell     chap      local     53        3        23      3     mgmt  Ethernet24</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Statistics</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server nas-ip 10.11.12.13</span>
+<span class="c1"># radius-server statistics enable</span>
+<span class="c1"># radius-server timeout 12</span>
+<span class="c1"># radius-server retransmit 5</span>
+<span class="c1"># radius-server auth-type chap</span>
+<span class="c1"># radius-server host 10.10.10.10 protocol TLS security-profile rad-sec-prof</span>
+<span class="c1"># radius-server host my-host1.dell auth-port 55 timeout 12 retransmit 7 auth-type chap priority 3 vrf VrfAnsibleTest source-interface Ethernet100</span>
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Merge radius configurations</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete specified radius server configuration</span>
 <span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_radius_server</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chap</span>
-<span class="w">      </span><span class="nt">nas_ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.2.3.4</span>
-<span class="w">      </span><span class="nt">statistics</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">nas_ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.11.12.13</span>
+<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
 <span class="w">      </span><span class="nt">servers</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">host</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hostx.local</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.10.10.10</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
 
 <span class="c1"># After state:</span>
 <span class="c1"># ------------</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># timeout    : 5</span>
-<span class="c1"># auth-type  : pap</span>
-<span class="c1"># key        : chap</span>
-<span class="c1"># retransmit : 3</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># HOST            AUTH-TYPE KEY       AUTH-PORT PRIORITY TIMEOUT RTSMT VRF   SI</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># myhost.dell     chap      local     53        3        23      3     mgmt  Ethernet24</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server statistics enable</span>
+<span class="c1"># radius-server retransmit 5</span>
+<span class="c1"># radius-server host my-host1.dell auth-port 55 timeout 12 retransmit 7 auth-type chap priority 3 vrf VrfAnsibleTest source-interface Ethernet100</span>
 
 
 <span class="c1"># Using &quot;deleted&quot; state</span>
@@ -459,38 +490,25 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <span class="c1"># Before state:</span>
 <span class="c1"># -------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># nas-ip-addr: 1.2.3.4</span>
-<span class="c1"># statistics : True</span>
-<span class="c1"># timeout    : 10</span>
-<span class="c1"># auth-type  : chap</span>
-<span class="c1"># key        : chap</span>
-<span class="c1"># retransmit : 3</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># HOST            AUTH-TYPE KEY       AUTH-PORT PRIORITY TIMEOUT RTSMT VRF   SI</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># hostx.local     mschapv2  local     52        2        20      2     mgmt  Ethernet12</span>
-<span class="c1"># myhost.dell     chap      local     53        3        23      3     mgmt  Ethernet24</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Statistics</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1">#</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Merge radius configurations</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server nas-ip 10.11.12.13</span>
+<span class="c1"># radius-server statistics enable</span>
+<span class="c1"># radius-server timeout 12</span>
+<span class="c1"># radius-server retransmit 5</span>
+<span class="c1"># radius-server auth-type chap</span>
+<span class="c1"># radius-server host 10.10.10.10 protocol TLS security-profile rad-sec-prof</span>
+<span class="c1"># radius-server host my-host1.dell auth-port 55 timeout 12 retransmit 7 auth-type chap priority 3 vrf VrfAnsibleTest source-interface Ethernet100</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete all radius server configuration</span>
 <span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_radius_server</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
 
 <span class="c1"># After state:</span>
 <span class="c1"># ------------</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># timeout    : 5</span>
-<span class="c1"># auth-type  : pap</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># (No radius-server configuration present)</span>
 
 
 <span class="c1"># Using &quot;merged&quot; state</span>
@@ -498,159 +516,116 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <span class="c1"># Before state:</span>
 <span class="c1"># -------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1">#</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Merge radius configurations</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># (No radius-server configuration present)</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Merge radius server configuration</span>
 <span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_radius_server</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chap</span>
-<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chap</span>
-<span class="w">      </span><span class="nt">nas_ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.2.3.4</span>
+<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
+<span class="w">      </span><span class="nt">nas_ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.11.12.13</span>
+<span class="w">      </span><span class="nt">retransmit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">      </span><span class="nt">statistics</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">      </span><span class="nt">retransmit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 <span class="w">      </span><span class="nt">servers</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">host</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hostx.local</span>
-<span class="w">            </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
-<span class="w">            </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
-<span class="w">            </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">52</span>
-<span class="w">            </span><span class="nt">retransmit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">            </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
-<span class="w">            </span><span class="nt">source_interface</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Eth 12</span>
-<span class="w">            </span><span class="nt">vrf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mgmt</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-host1.dell</span>
+<span class="w">            </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chap</span>
+<span class="w">            </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">            </span><span class="nt">vrf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VrfAnsibleTest</span>
+<span class="w">            </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">55</span>
+<span class="w">            </span><span class="nt">source_interface</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ethernet100</span>
+<span class="w">            </span><span class="nt">retransmit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.10.10.10&quot;</span>
+<span class="w">            </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;TLS&quot;</span>
+<span class="w">            </span><span class="nt">security_profile</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rad-sec-prof&quot;</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merged</span>
 
 <span class="c1"># After state:</span>
 <span class="c1"># ------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># nas-ip-addr: 1.2.3.4</span>
-<span class="c1"># statistics : True</span>
-<span class="c1"># timeout    : 10</span>
-<span class="c1"># auth-type  : chap</span>
-<span class="c1"># key        : chap</span>
-<span class="c1"># retransmit : 3</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># HOST            AUTH-TYPE KEY       AUTH-PORT PRIORITY TIMEOUT RTSMT VRF   SI</span>
-<span class="c1"># --------------------------------------------------------------------------------</span>
-<span class="c1"># hostx.local     mschapv2  local     52        2        20      2     mgmt  Ethernet12</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Statistics</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server nas-ip 10.11.12.13</span>
+<span class="c1"># radius-server statistics enable</span>
+<span class="c1"># radius-server timeout 12</span>
+<span class="c1"># radius-server retransmit 5</span>
+<span class="c1"># radius-server auth-type chap</span>
+<span class="c1"># radius-server host 10.10.10.10 protocol TLS security-profile rad-sec-prof</span>
+<span class="c1"># radius-server host my-host1.dell auth-port 55 timeout 12 retransmit 7 auth-type chap priority 3 vrf VrfAnsibleTest source-interface Ethernet100</span>
+
+
 <span class="c1"># Using &quot;replaced&quot; state</span>
 <span class="c1">#</span>
 <span class="c1"># Before state:</span>
 <span class="c1"># -------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># timeout           : 10</span>
-<span class="c1"># auth-type         : pap</span>
-<span class="c1"># key configured    : Yes</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># HOST        AUTH-TYPE KEY-CONFIG AUTH-PORT PRIORITY TIMEOUT RTSMT VRF     SI</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># 1.2.3.4     pap       No         49        1         5      -     -       Ethernet0</span>
-<span class="c1">#</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace radius configurations</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server nas-ip 10.11.12.13</span>
+<span class="c1"># radius-server statistics enable</span>
+<span class="c1"># radius-server timeout 12</span>
+<span class="c1"># radius-server retransmit 5</span>
+<span class="c1"># radius-server auth-type chap</span>
+<span class="c1"># radius-server host 10.10.10.10 protocol TLS security-profile rad-sec-prof</span>
+<span class="c1"># radius-server host my-host1.dell auth-port 55 timeout 12 retransmit 7 auth-type chap priority 3 vrf VrfAnsibleTest source-interface Ethernet100</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace specified radius server host configuration</span>
 <span class="w">  </span><span class="nt">sonic_radius_server</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
 <span class="w">      </span><span class="nt">servers</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.2.3.4</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-host1.dell</span>
 <span class="w">            </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
-<span class="w">            </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
 <span class="w">            </span><span class="nt">source_interface</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ethernet12</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replaced</span>
-<span class="c1">#</span>
+
 <span class="c1"># After state:</span>
 <span class="c1"># ------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># timeout           : 20</span>
-<span class="c1"># auth-type         : mschapv2</span>
-<span class="c1"># key configured    : No</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># HOST        AUTH-TYPE KEY-CONFIG AUTH-PORT PRIORITY TIMEOUT RTSMT VRF     SI</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># 1.2.3.4      mschapv2 Yes        1812       -          -    -     -       Ethernet12</span>
-<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server nas-ip 10.11.12.13</span>
+<span class="c1"># radius-server statistics enable</span>
+<span class="c1"># radius-server timeout 12</span>
+<span class="c1"># radius-server retransmit 5</span>
+<span class="c1"># radius-server auth-type chap</span>
+<span class="c1"># radius-server host 10.10.10.10 protocol TLS security-profile rad-sec-prof</span>
+<span class="c1"># radius-server host my-host1.dell auth-type mschapv2 source-interface Ethernet12</span>
+
 <span class="c1"># Using &quot;overridden&quot; state</span>
 <span class="c1">#</span>
 <span class="c1"># Before state:</span>
 <span class="c1"># -------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># timeout           : 10</span>
-<span class="c1"># auth-type         : pap</span>
-<span class="c1"># key configured    : Yes</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># HOST        AUTH-TYPE KEY-CONFIG AUTH-PORT PRIORITY TIMEOUT RTSMT VRF     SI</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># 1.2.3.4     pap       No         49        1         5      -     -       Ethernet0</span>
-<span class="c1"># 11.12.13.14 chap      Yes        49        10        5      3     -       -</span>
-<span class="c1">#</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Override radius configurations</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server nas-ip 10.11.12.13</span>
+<span class="c1"># radius-server statistics enable</span>
+<span class="c1"># radius-server timeout 12</span>
+<span class="c1"># radius-server retransmit 5</span>
+<span class="c1"># radius-server auth-type chap</span>
+<span class="c1"># radius-server host 10.10.10.10 protocol TLS security-profile rad-sec-prof</span>
+<span class="c1"># radius-server host my-host1.dell auth-type mschapv2 source-interface Ethernet12</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Override radius server configuration</span>
 <span class="w">  </span><span class="nt">sonic_radius_server</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
-<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
 <span class="w">      </span><span class="nt">servers</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.2.3.4</span>
-<span class="w">            </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
-<span class="w">            </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mschapv2</span>
-<span class="w">            </span><span class="nt">source_interface</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ethernet12</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.10.11.12</span>
-<span class="w">            </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chap</span>
-<span class="w">            </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<span class="w">            </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">49</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20.20.20.20</span>
+<span class="w">            </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS</span>
+<span class="w">            </span><span class="nt">security_profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rad-sec-prof</span>
 <span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">overridden</span>
-<span class="c1">#</span>
+
 <span class="c1"># After state:</span>
 <span class="c1"># ------------</span>
 <span class="c1">#</span>
-<span class="c1"># sonic(config)# do show radius-server</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># RADIUS Global Configuration</span>
-<span class="c1"># ---------------------------------------------------------</span>
-<span class="c1"># timeout           : 20</span>
-<span class="c1"># auth-type         : mschapv2</span>
-<span class="c1"># key configured    : Yes</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># HOST        AUTH-TYPE KEY-CONFIG AUTH-PORT PRIORITY TIMEOUT RTSMT VRF     SI</span>
-<span class="c1"># --------------------------------------------------------------------------------------</span>
-<span class="c1"># 1.2.3.4      mschapv2 Yes        1812       -          -    -     -       Ethernet12</span>
-<span class="c1"># 10.10.11.12  chap     No         49         2          30   -     -       -</span>
-<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration | grep radius-server</span>
+<span class="c1"># radius-server host 20.20.20.20 protocol TLS security-profile rad-sec-prof</span>
 </pre></div>
 </div>
 </section>
 <section id="return-values">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
-<p>Common return values are documented <a class="reference external" href="https://docs.ansible.com/ansible/devel/reference_appendices/common_return_values.html#common-return-values" title="(in Ansible vdevel)"><span class="xref std std-ref">here</span></a>, the following are the fields unique to this module:</p>
+<p>Common return values are documented <a class="reference external" href="https://docs.ansible.com/projects/ansible/devel/reference_appendices/common_return_values.html#common-return-values" title="(in Ansible devel)"><span class="xref std std-ref">here</span></a>, the following are the fields unique to this module:</p>
 <table class="longtable ansible-option-table docutils align-default" style="width: 100%">
 <thead>
 <tr class="row-odd"><th class="head"><p>Key</p></th>
@@ -660,23 +635,29 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="return-after"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-return-after"><strong>after</strong></p>
-<a class="ansibleOptionLink" href="#return-after" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+<a class="ansibleOptionLink" href="#return-after" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>The resulting configuration module invocation.</p>
 <p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when changed</p>
-<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="return-before"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-return-before"><strong>before</strong></p>
-<a class="ansibleOptionLink" href="#return-before" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+<div class="ansibleOptionAnchor" id="return-after_generated"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-return-after-generated"><strong>after_generated</strong></p>
+<a class="ansibleOptionLink" href="#return-after_generated" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
 </div></td>
-<td><div class="ansible-option-cell"><p>The configuration prior to the module invocation.</p>
-<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
-<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+<td><div class="ansible-option-cell"><p>The generated configuration from module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when <code class="docutils literal notranslate"><span class="pre">check_mode</span></code></p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-before"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-return-before"><strong>before</strong></p>
+<a class="ansibleOptionLink" href="#return-before" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The configuration prior to the module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="return-commands"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-radius-server-module-return-commands"><strong>commands</strong></p>
 <a class="ansibleOptionLink" href="#return-commands" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
 </div></td>

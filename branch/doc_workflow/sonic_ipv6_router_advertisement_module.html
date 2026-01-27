@@ -1,0 +1,1120 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="2.24.0" name="antsibull-docs" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dellemc.enterprise_sonic.sonic_ipv6_router_advertisement module – Manage interface-specific IPv6 Router Advertisement configurations on SONiC &mdash; dellemc.enterprise_sonic Collection  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=b54c304f" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
+    <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7f41d439"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dellemc.enterprise_sonic.sonic_l2_acls module – Manage Layer 2 access control lists (ACL) configurations on SONiC" href="sonic_l2_acls_module.html" />
+    <link rel="prev" title="dellemc.enterprise_sonic.sonic_ip_neighbor_interfaces module – Manage interface-specific IP neighbor configurations on SONiC" href="sonic_ip_neighbor_interfaces_module.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="https://www.ansible.com/blog" target="_blank">Blog</a></li>
+    <li><a href="https://forum.ansible.com/" target="_blank">Ansible community forum</a></li>
+    <li><a href="https://docs.ansible.com/" target="_blank">Documentation</a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="https://ArunSaravananBalachandran.github.io/dellemc.enterprise_sonic/branch/doc_workflow/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="_static/images/Ansible-Mark-RGB_White.png"
+    alt="Ansible Logo">
+  <div class="DocSiteNav-title">dellemc.enterprise_sonic Collection Docs</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            dellemc.enterprise_sonic Collection
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sonic_module.html">dellemc.enterprise_sonic.sonic module – A dummy module for the sonic action plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_aaa_module.html">dellemc.enterprise_sonic.sonic_aaa module – Manage AAA configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_acl_interfaces_module.html">dellemc.enterprise_sonic.sonic_acl_interfaces module – Manage access control list (ACL) to interface binding on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_api_module.html">dellemc.enterprise_sonic.sonic_api module – Manages REST operations on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ars_module.html">dellemc.enterprise_sonic.sonic_ars module – Manage adaptive routing and switching (ARS) configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bfd_module.html">dellemc.enterprise_sonic.sonic_bfd module – Manage BFD configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_module.html">dellemc.enterprise_sonic.sonic_bgp module – Manage global BGP and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_af_module.html">dellemc.enterprise_sonic.sonic_bgp_af module – Manage global BGP address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_as_paths_module.html">dellemc.enterprise_sonic.sonic_bgp_as_paths module – Manage BGP autonomous system path (or as-path-list) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_communities module – Manage BGP community and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_ext_communities_module.html">dellemc.enterprise_sonic.sonic_bgp_ext_communities module – Manage BGP extended community-list and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors module – Manage a BGP neighbor and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_bgp_neighbors_af_module.html">dellemc.enterprise_sonic.sonic_bgp_neighbors_af module – Manage the BGP neighbor address-family and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_br_l2pt_module.html">dellemc.enterprise_sonic.sonic_br_l2pt module – Manage L2PT configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_command_module.html">dellemc.enterprise_sonic.sonic_command module – Runs commands on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_config_module.html">dellemc.enterprise_sonic.sonic_config module – Manages configuration sections on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_copp_module.html">dellemc.enterprise_sonic.sonic_copp module – Manage CoPP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dcbx_module.html">dellemc.enterprise_sonic.sonic_dcbx module – Manage DCBx configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_relay_module.html">dellemc.enterprise_sonic.sonic_dhcp_relay module – Manage DHCP and DHCPv6 relay configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_dhcp_snooping_module.html">dellemc.enterprise_sonic.sonic_dhcp_snooping module – Manage DHCP Snooping on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_drop_counter_module.html">dellemc.enterprise_sonic.sonic_drop_counter module – Manage drop counter configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ecmp_load_share_module.html">dellemc.enterprise_sonic.sonic_ecmp_load_share module – IP ECMP load share mode configuration handling for SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_evpn_esi_multihome_module.html">dellemc.enterprise_sonic.sonic_evpn_esi_multihome module – Manage EVPN ESI multihoming configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_facts_module.html">dellemc.enterprise_sonic.sonic_facts module – Collects facts on devices running Enterprise SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_classifiers_module.html">dellemc.enterprise_sonic.sonic_fbs_classifiers module – Manage flow based services (FBS) classifiers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_groups_module.html">dellemc.enterprise_sonic.sonic_fbs_groups module – Manage flow based services (FBS) groups configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_interfaces_module.html">dellemc.enterprise_sonic.sonic_fbs_interfaces module – Manage flow based services (FBS) interfaces configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fbs_policies_module.html">dellemc.enterprise_sonic.sonic_fbs_policies module – Manage flow based services (FBS) policies configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_fips_module.html">dellemc.enterprise_sonic.sonic_fips module – Manage FIPS configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_image_management_module.html">dellemc.enterprise_sonic.sonic_image_management module – Manage installation of Enterprise SONiC image, software patch and firmware updater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_interfaces_module.html">dellemc.enterprise_sonic.sonic_interfaces module – Configure Interface attributes on interfaces such as, Eth, LAG, VLAN, and loopback. (create a loopback interface if it does not exist.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ip_neighbor_module.html">dellemc.enterprise_sonic.sonic_ip_neighbor module – Manage IP neighbor global configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ip_neighbor_interfaces_module.html">dellemc.enterprise_sonic.sonic_ip_neighbor_interfaces module – Manage interface-specific IP neighbor configurations on SONiC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement module – Manage interface-specific IPv6 Router Advertisement configurations on SONiC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-values">Return Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authors">Authors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collection-links">Collection links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_acls_module.html">dellemc.enterprise_sonic.sonic_l2_acls module – Manage Layer 2 access control lists (ACL) configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l2_interfaces_module.html">dellemc.enterprise_sonic.sonic_l2_interfaces module – Configure interface-to-VLAN association that is based on access or trunk mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l3_acls_module.html">dellemc.enterprise_sonic.sonic_l3_acls module – Manage Layer 3 access control lists (ACL) configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_l3_interfaces_module.html">dellemc.enterprise_sonic.sonic_l3_interfaces module – Configure the IPv4 and IPv6 parameters on Interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lag_interfaces_module.html">dellemc.enterprise_sonic.sonic_lag_interfaces module – Manage link aggregation group (LAG) interface parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ldap_module.html">dellemc.enterprise_sonic.sonic_ldap module – Configure global LDAP server settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_global_module.html">dellemc.enterprise_sonic.sonic_lldp_global module – Manage Global LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lldp_interfaces_module.html">dellemc.enterprise_sonic.sonic_lldp_interfaces module – Manage Inteface LLDP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_logging_module.html">dellemc.enterprise_sonic.sonic_logging module – Manage logging configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_login_lockout_module.html">dellemc.enterprise_sonic.sonic_login_lockout module – Manage Global Login Lockout configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_lst_module.html">dellemc.enterprise_sonic.sonic_lst module – Manage link state tracking (LST) configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mac_module.html">dellemc.enterprise_sonic.sonic_mac module – Manage MAC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mclag_module.html">dellemc.enterprise_sonic.sonic_mclag module – Manage multi chassis link aggregation groups domain (MCLAG) and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mfa_module.html">dellemc.enterprise_sonic.sonic_mfa module – Manage Multi-factor authentication (MFA) configurations on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mgmt_servers_module.html">dellemc.enterprise_sonic.sonic_mgmt_servers module – Manage management servers configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_mirroring_module.html">dellemc.enterprise_sonic.sonic_mirroring module – Manage port mirroring configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_network_policy_module.html">dellemc.enterprise_sonic.sonic_network_policy module – Manage network policy configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ntp_module.html">dellemc.enterprise_sonic.sonic_ntp module – Manage NTP configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospf_area_module.html">dellemc.enterprise_sonic.sonic_ospf_area module – configure OSPF area settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_module.html">dellemc.enterprise_sonic.sonic_ospfv2 module – Configure global OSPFv2 protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv2_interfaces_module.html">dellemc.enterprise_sonic.sonic_ospfv2_interfaces module – Configure OSPFv2 interface mode protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv3_module.html">dellemc.enterprise_sonic.sonic_ospfv3 module – Configure global OSPFv3 protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv3_area_module.html">dellemc.enterprise_sonic.sonic_ospfv3_area module – Configure OSPFv3 area settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ospfv3_interfaces_module.html">dellemc.enterprise_sonic.sonic_ospfv3_interfaces module – Configure OSPFv3 interface mode protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_global_module.html">dellemc.enterprise_sonic.sonic_pim_global module – Manage global PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pim_interfaces_module.html">dellemc.enterprise_sonic.sonic_pim_interfaces module – Manage interface-specific PIM configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pki_module.html">dellemc.enterprise_sonic.sonic_pki module – Manages PKI attributes of Enterprise Sonic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_pms_module.html">dellemc.enterprise_sonic.sonic_pms module – Configure interface mode port security settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_poe_module.html">dellemc.enterprise_sonic.sonic_poe module – Manage PoE configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_breakout_module.html">dellemc.enterprise_sonic.sonic_port_breakout module – Configure port breakout settings on physical interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_port_group_module.html">dellemc.enterprise_sonic.sonic_port_group module – Manages port group configuration on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_prefix_lists_module.html">dellemc.enterprise_sonic.sonic_prefix_lists module – prefix list configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ptp_default_ds_module.html">dellemc.enterprise_sonic.sonic_ptp_default_ds module – Manage global PTP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ptp_port_ds_module.html">dellemc.enterprise_sonic.sonic_ptp_port_ds module – Manage port specific PTP configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_buffer_module.html">dellemc.enterprise_sonic.sonic_qos_buffer module – Manage QoS buffer configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_interfaces_module.html">dellemc.enterprise_sonic.sonic_qos_interfaces module – Manage QoS interfaces configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_maps_module.html">dellemc.enterprise_sonic.sonic_qos_maps module – Manage QoS maps configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_pfc_module.html">dellemc.enterprise_sonic.sonic_qos_pfc module – Manage QoS PFC configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_scheduler_module.html">dellemc.enterprise_sonic.sonic_qos_scheduler module – Manage QoS scheduler configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_qos_wred_module.html">dellemc.enterprise_sonic.sonic_qos_wred module – Manage QoS WRED profiles configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_radius_server_module.html">dellemc.enterprise_sonic.sonic_radius_server module – Manage RADIUS server configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_roce_module.html">dellemc.enterprise_sonic.sonic_roce module – Manage RoCE QoS configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_route_maps_module.html">dellemc.enterprise_sonic.sonic_route_maps module – route map configuration handling for SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_sflow_module.html">dellemc.enterprise_sonic.sonic_sflow module – configure sflow settings on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ssh_module.html">dellemc.enterprise_sonic.sonic_ssh module – Manage SSH configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_ssh_server_module.html">dellemc.enterprise_sonic.sonic_ssh_server module – Manage SSH server configurations on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_static_routes_module.html">dellemc.enterprise_sonic.sonic_static_routes module – Manage static routes configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_stp_module.html">dellemc.enterprise_sonic.sonic_stp module – Manage STP configuration on SONiC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_system_module.html">dellemc.enterprise_sonic.sonic_system module – Configure system parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_tacacs_server_module.html">dellemc.enterprise_sonic.sonic_tacacs_server module – Manage TACACS server and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_users_module.html">dellemc.enterprise_sonic.sonic_users module – Manage users and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlan_mapping_module.html">dellemc.enterprise_sonic.sonic_vlan_mapping module – Configure vlan mappings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vlans_module.html">dellemc.enterprise_sonic.sonic_vlans module – Manage VLAN and its parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrfs_module.html">dellemc.enterprise_sonic.sonic_vrfs module – Manage VRFs and associate VRFs to interfaces such as, Eth, LAG, VLAN, and loopback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vrrp_module.html">dellemc.enterprise_sonic.sonic_vrrp module – Configure VRRP protocol settings on SONiC.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sonic_vxlans_module.html">dellemc.enterprise_sonic.sonic_vxlans module – Manage VXLAN configuration on SONiC</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_cliconf.html">dellemc.enterprise_sonic.sonic cliconf – Use sonic cliconf to run command on Dell SONiC platforms</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sonic_httpapi.html">dellemc.enterprise_sonic.sonic httpapi – HttpApi Plugin for devices supporting Restconf SONIC API</a></li>
+</ul>
+<!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dellemc.enterprise_sonic Collection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement module – Manage interface-specific IPv6 Router Advertisement configurations on SONiC</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <span class="target" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module"></span><section id="dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-manage-interface-specific-ipv6-router-advertisement-configurations-on-sonic">
+<h1>dellemc.enterprise_sonic.sonic_ipv6_router_advertisement module – Manage interface-specific IPv6 Router Advertisement configurations on SONiC<a class="headerlink" href="#dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-manage-interface-specific-ipv6-router-advertisement-configurations-on-sonic" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/dellemc/enterprise_sonic/">dellemc.enterprise_sonic collection</a> (version 4.0.0).</p>
+<p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
+To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
+<p>To install it, use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">dellemc.enterprise_sonic</span></code>.</p>
+<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement</span></code>.</p>
+</div>
+<p class="ansible-version-added">New in dellemc.enterprise_sonic 3.1.0</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#synopsis" id="id1">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id2">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id4">Return Values</a></p></li>
+</ul>
+</nav>
+<section id="synopsis">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This module provides configuration management of interface-specific IPv6 Router Advertisement parameters for devices running SONiC.</p></li>
+<li><p>This functionality is referred to as ‘ipv6 nd’ in Enterprise SONiC CLI.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config"><strong>config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Specifies interface-specific IPv6 Router Advertisement configurations.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/adv_interval_option"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-adv-interval-option"><strong>adv_interval_option</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/adv_interval_option" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Include Advertisement Interval option in Router Advertisement.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/dnssl"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-dnssl"><strong>dnssl</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/dnssl" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the DNS search list to advertise.</p>
+<p>If <em>state=deleted</em>, options other than <em>dnssl_name</em> are not considered.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/dnssl/dnssl_name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-dnssl-dnssl-name"><strong>dnssl_name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/dnssl/dnssl_name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Domain Name suffix to be advertised.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/dnssl/valid_lifetime"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-dnssl-valid-lifetime"><strong>valid_lifetime</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/dnssl/valid_lifetime" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the valid lifetime in seconds.</p>
+<p>The range if from 0 to 4294967295.</p>
+<p>Value of 4294967295 represents infinite valid lifetime.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/home_agent_config"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-home-agent-config"><strong>home_agent_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/home_agent_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set ‘Home Agent’ flag in Router Advertisement.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/home_agent_lifetime"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-home-agent-lifetime"><strong>home_agent_lifetime</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/home_agent_lifetime" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the Home Agent lifetime in seconds when <em>home_agent_config=True</em>.</p>
+<p>The range is from 0 to 65520.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/home_agent_preference"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-home-agent-preference"><strong>home_agent_preference</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/home_agent_preference" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the Home Agent preference when <em>home_agent_config=True</em>.</p>
+<p>The range is from 0 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/managed_config"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-managed-config"><strong>managed_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/managed_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set ‘Managed Address Configuration’ flag in Router Advertisement.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/min_ra_interval"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-min-ra-interval"><strong>min_ra_interval</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/min_ra_interval" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the minimum Router Advertisement interval in seconds.</p>
+<p>The range is from 1 to 1350.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/min_ra_interval_msec"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-min-ra-interval-msec"><strong>min_ra_interval_msec</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/min_ra_interval_msec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the minimum Router Advertisement interval in milliseconds.</p>
+<p>The range is from 30 to 1350000.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/mtu"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-mtu"><strong>mtu</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/mtu" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the MTU (in bytes) to be advertised.</p>
+<p>The range is from 0 to 65535.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/name"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Full name of the interface.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/other_config"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-other-config"><strong>other_config</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/other_config" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set ‘Other Configuration’ flag in Router Advertisement.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_fast_retrans"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-fast-retrans"><strong>ra_fast_retrans</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_fast_retrans" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Enable faster transmissions of RA packets.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_hop_limit"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-hop-limit"><strong>ra_hop_limit</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_hop_limit" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the Hop limit to be advertised.</p>
+<p>The range is from 0 to 255.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_interval"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-interval"><strong>ra_interval</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_interval" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the maximum Router Advertisement interval in seconds.</p>
+<p>The range is from 1 to 1800.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_interval_msec"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-interval-msec"><strong>ra_interval_msec</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_interval_msec" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the maximum Router Advertisement interval in milliseconds.</p>
+<p>The range is from 70 to 1800000.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_lifetime"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-lifetime"><strong>ra_lifetime</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_lifetime" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the Router Lifetime in seconds.</p>
+<p>The range is from 0 to 9000.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_prefixes"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-prefixes"><strong>ra_prefixes</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_prefixes" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the IPv6 prefixes to be included in Router Advertisement.</p>
+<p>If <em>state=deleted</em>, options other than <em>prefix</em> are not considered.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_prefixes/no_autoconfig"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-prefixes-no-autoconfig"><strong>no_autoconfig</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_prefixes/no_autoconfig" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Indicate the prefix cannot be used for IPv6 autoconfiguration.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_prefixes/off_link"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-prefixes-off-link"><strong>off_link</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_prefixes/off_link" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Indicate the prefix cannot be used for on-link determination.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_prefixes/preferred_lifetime"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-prefixes-preferred-lifetime"><strong>preferred_lifetime</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_prefixes/preferred_lifetime" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the preferred lifetime in seconds.</p>
+<p>The range if from 0 to 4294967295.</p>
+<p>Value of 4294967295 represents infinite preferred lifetime.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_prefixes/prefix"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-prefixes-prefix"><strong>prefix</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_prefixes/prefix" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IPv6 prefix to be advertised.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_prefixes/router_address"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-prefixes-router-address"><strong>router_address</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_prefixes/router_address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set ‘Router Address’ flag.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_prefixes/valid_lifetime"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-prefixes-valid-lifetime"><strong>valid_lifetime</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_prefixes/valid_lifetime" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the valid lifetime in seconds.</p>
+<p>The range if from 0 to 4294967295.</p>
+<p>Value of 4294967295 represents infinite valid lifetime.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/ra_retrans_interval"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-ra-retrans-interval"><strong>ra_retrans_interval</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/ra_retrans_interval" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the Retransmission Interval in milliseconds.</p>
+<p>The range is from 0 to 4294967295.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/rdnss"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-rdnss"><strong>rdnss</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/rdnss" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the Recursive DNS server addresses to advertise.</p>
+<p>If <em>state=deleted</em>, options other than <em>address</em> are not considered.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/rdnss/address"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-rdnss-address"><strong>address</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/rdnss/address" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Recursive DNS server address to be advertised.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/rdnss/valid_lifetime"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-rdnss-valid-lifetime"><strong>valid_lifetime</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/rdnss/valid_lifetime" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the valid lifetime in seconds.</p>
+<p>The range if from 0 to 4294967295.</p>
+<p>Value of 4294967295 represents infinite valid lifetime.</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/reachable_time"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-reachable-time"><strong>reachable_time</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/reachable_time" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the Reachable Time in milliseconds.</p>
+<p>The range is from 0 to 3600000.</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/router_preference"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-router-preference"><strong>router_preference</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/router_preference" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Specifies the default router preference.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;medium&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-config/suppress"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-config-suppress"><strong>suppress</strong></p>
+<a class="ansibleOptionLink" href="#parameter-config/suppress" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Enable suppression of Router Advertisement.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-state"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-parameter-state"><strong>state</strong></p>
+<a class="ansibleOptionLink" href="#parameter-state" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The state of the configuration after module completion.</p>
+<p><code class="docutils literal notranslate"><span class="pre">merged</span></code> - Merges provided interface-specific IPv6 router advertisement configuration with on-device configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">replaced</span></code> - Replaces on-device IPv6 router advertisement configuration of the specified interfaces with provided configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">overridden</span></code> - Overrides all on-device interface-specific IPv6 router advertisement configurations with the provided configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">deleted</span></code> - Deletes on-device interface-specific IPv6 router advertisement configuration.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;merged&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;deleted&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;replaced&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;overridden&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="highlight-yaml+jinja notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using merged</span>
+<span class="c1">#</span>
+<span class="c1"># Before State:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Add IPv6 Router Advertisement configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/1&#39;</span>
+<span class="w">        </span><span class="nt">suppress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">router_preference</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
+<span class="w">        </span><span class="nt">ra_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">180</span>
+<span class="w">        </span><span class="nt">min_ra_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
+<span class="w">        </span><span class="nt">ra_lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">360</span>
+<span class="w">        </span><span class="nt">ra_retrans_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30000</span>
+<span class="w">        </span><span class="nt">ra_hop_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">        </span><span class="nt">dnssl</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dnssl_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;test.com&#39;</span>
+<span class="w">            </span><span class="nt">valid_lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span>
+<span class="w">        </span><span class="nt">rdnss</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100::100</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100::200</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/2&#39;</span>
+<span class="w">        </span><span class="nt">adv_interval_option</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">ra_fast_retrans</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">reachable_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7200000</span>
+<span class="w">        </span><span class="nt">ra_prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000:0:0:2000::/64</span>
+<span class="w">            </span><span class="nt">valid_lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">86400</span>
+<span class="w">            </span><span class="nt">preferred_lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">86400</span>
+<span class="w">            </span><span class="nt">off_link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">            </span><span class="nt">no_autoconfig</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">merged</span>
+
+<span class="c1"># After State:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd ra-retrans-interval 30000</span>
+<span class="c1">#  ipv6 nd router-preference high</span>
+<span class="c1">#  ipv6 nd dnssl test.com 3600</span>
+<span class="c1">#  ipv6 nd rdnss 100::100</span>
+<span class="c1">#  ipv6 nd rdnss 100::200</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  no ipv6 nd ra-fast-retrans</span>
+<span class="c1">#  ipv6 nd adv-interval-option</span>
+<span class="c1">#  ipv6 nd reachable-time 1200000</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:2000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+
+<span class="c1"># Using deleted</span>
+<span class="c1">#</span>
+<span class="c1"># Before State:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd ra-retrans-interval 30000</span>
+<span class="c1">#  ipv6 nd router-preference high</span>
+<span class="c1">#  ipv6 nd dnssl test.com 3600</span>
+<span class="c1">#  ipv6 nd dnssl test2.com 7200</span>
+<span class="c1">#  ipv6 nd rdnss 100::100 3600</span>
+<span class="c1">#  ipv6 nd rdnss 100::200 7200</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  no ipv6 nd ra-fast-retrans</span>
+<span class="c1">#  ipv6 nd adv-interval-option</span>
+<span class="c1">#  ipv6 nd min-ra-interval msec 45500</span>
+<span class="c1">#  ipv6 nd reachable-time 1200000</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:2000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete IPv6 Router Advertisement configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/1&#39;</span>
+<span class="w">        </span><span class="nt">ra_hop_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">        </span><span class="nt">router_preference</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
+<span class="w">        </span><span class="nt">dnssl</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dnssl_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test2.com</span>
+<span class="w">        </span><span class="nt">rdnss</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100::200</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/2&#39;</span>
+<span class="w">        </span><span class="nt">adv_interval_option</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">ra_fast_retrans</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">ra_prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000:0:0:2000::/64</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After State:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd ra-retrans-interval 30000</span>
+<span class="c1">#  ipv6 nd dnssl test.com 3600</span>
+<span class="c1">#  ipv6 nd rdnss 100::100 3600</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd min ra-interval msec 45500</span>
+<span class="c1">#  ipv6 nd reachable-time 1200000</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+
+<span class="c1"># Using deleted</span>
+<span class="c1">#</span>
+<span class="c1"># Before State:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd ra-retrans-interval 30000</span>
+<span class="c1">#  ipv6 nd dnssl test.com 3600</span>
+<span class="c1">#  ipv6 nd rdnss 100::100 3600</span>
+<span class="c1">#  ipv6 nd rdnss 100::200 7200</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd adv-interval-option</span>
+<span class="c1">#  ipv6 nd router-preference low</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete all IPv6 Router Advertisement configurations for interface Eth1/1</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/1&#39;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After State:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd adv-interval-option</span>
+<span class="c1">#  ipv6 nd router-preference low</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+
+<span class="c1"># Using deleted</span>
+<span class="c1">#</span>
+<span class="c1"># Before State:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd ra-retrans-interval 30000</span>
+<span class="c1">#  ipv6 nd dnssl test.com 3600</span>
+<span class="c1">#  ipv6 nd rdnss 100::100 3600</span>
+<span class="c1">#  ipv6 nd rdnss 100::200 7200</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd adv-interval-option</span>
+<span class="c1">#  ipv6 nd router-preference low</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Delete all IPv6 Router Advertisement configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deleted</span>
+
+<span class="c1"># After State:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1"># !</span>
+
+
+<span class="c1"># Using replaced</span>
+<span class="c1">#</span>
+<span class="c1"># Before State:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd router-preference high</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  no ipv6 nd ra-fast-retrans</span>
+<span class="c1">#  ipv6 nd adv-interval-option</span>
+<span class="c1">#  ipv6 nd min-ra-interval msec 45500</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd reachable-time 1200000</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:1000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1">#  ipv6 nd prefix 1000:0:0:2000::/64 86400 86400 off-link no-autoconfig</span>
+<span class="c1"># !</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Replace IPv6 Router Advertisement configurations for interface Eth1/2</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/2&#39;</span>
+<span class="w">        </span><span class="nt">suppress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">ra_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
+<span class="w">        </span><span class="nt">router_preference</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
+<span class="w">        </span><span class="nt">ra_prefixes</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000:0:0:1000::/64</span>
+<span class="w">            </span><span class="nt">valid_lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span>
+<span class="w">            </span><span class="nt">preferred_lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span>
+<span class="w">            </span><span class="nt">router_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replaced</span>
+
+<span class="c1"># After State:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd router-preference high</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-interval 300</span>
+<span class="c1">#  ipv6 nd router-preference high</span>
+<span class="c1">#  ipv6 nd prefix 2000:0:0:1000::/64 3600 3600 router-address</span>
+<span class="c1"># !</span>
+
+
+<span class="c1"># Using overridden</span>
+<span class="c1">#</span>
+<span class="c1"># Before State:</span>
+<span class="c1"># -------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-hop-limit 10</span>
+<span class="c1">#  ipv6 nd ra-interval 180</span>
+<span class="c1">#  ipv6 nd min-ra-interval 60</span>
+<span class="c1">#  ipv6 nd ra-lifetime 360</span>
+<span class="c1">#  ipv6 nd router-preference high</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd ra-interval 300</span>
+<span class="c1">#  ipv6 nd router-preference high</span>
+<span class="c1">#  ipv6 nd prefix 2000:0:0:1000::/64 3600 3600 router-address</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/3</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1"># !</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Override all IPv6 Router Advertisement configurations</span>
+<span class="w">  </span><span class="nt">dellemc.enterprise_sonic.sonic_ipv6_router_advertisement</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/1&#39;</span>
+<span class="w">        </span><span class="nt">suppress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">home_agent_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">home_agent_lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7200</span>
+<span class="w">        </span><span class="nt">home_agent_preference</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eth1/3&#39;</span>
+<span class="w">        </span><span class="nt">suppress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">managed_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">other_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">ra_retrans_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30000</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">overridden</span>
+
+<span class="c1"># After State:</span>
+<span class="c1"># ------------</span>
+<span class="c1">#</span>
+<span class="c1"># sonic# show running-configuration interface</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/1</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd home-agent-config-flag</span>
+<span class="c1">#  ipv6 nd home-agent-lifetime 7200</span>
+<span class="c1">#  ipv6 nd home-agent-preference 100</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/2</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1"># !</span>
+<span class="c1"># interface Eth1/3</span>
+<span class="c1">#  mtu 9100</span>
+<span class="c1">#  speed 400000</span>
+<span class="c1">#  fec RS</span>
+<span class="c1">#  no shutdown</span>
+<span class="c1">#  no ipv6 nd suppress-ra</span>
+<span class="c1">#  ipv6 nd managed-config-flag</span>
+<span class="c1">#  ipv6 nd other-config-flag</span>
+<span class="c1">#  ipv6 nd ra-retrans-interval 30000</span>
+<span class="c1"># !</span>
+</pre></div>
+</div>
+</section>
+<section id="return-values">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Return Values</a><a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<p>Common return values are documented <a class="reference external" href="https://docs.ansible.com/projects/ansible/devel/reference_appendices/common_return_values.html#common-return-values" title="(in Ansible devel)"><span class="xref std std-ref">here</span></a>, the following are the fields unique to this module:</p>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-return-after"><strong>after</strong></p>
+<a class="ansibleOptionLink" href="#return-after" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The configuration resulting from module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when changed</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format\n</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-after_generated"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-return-after-generated"><strong>after_generated</strong></p>
+<a class="ansibleOptionLink" href="#return-after_generated" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The configuration that would be generated by module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> when <code class="docutils literal notranslate"><span class="pre">check_mode</span></code></p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-before"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-return-before"><strong>before</strong></p>
+<a class="ansibleOptionLink" href="#return-before" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The configuration prior to the module invocation.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;The</span> <span class="pre">configuration</span> <span class="pre">returned</span> <span class="pre">will</span> <span class="pre">always</span> <span class="pre">be</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">format\n</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">above.\n&quot;]</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="return-commands"></div><p class="ansible-option-title" id="ansible-collections-dellemc-enterprise-sonic-sonic-ipv6-router-advertisement-module-return-commands"><strong>commands</strong></p>
+<a class="ansibleOptionLink" href="#return-commands" title="Permalink to this return value"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>The set of commands pushed to the remote device.</p>
+<p class="ansible-option-line"><strong class="ansible-option-returned-bold">Returned:</strong> always</p>
+<p class="ansible-option-line ansible-option-sample"><strong class="ansible-option-sample-bold">Sample:</strong> <code class="ansible-option-sample docutils literal notranslate"><span class="pre">[&quot;command</span> <span class="pre">1&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">2&quot;,</span> <span class="pre">&quot;command</span> <span class="pre">3&quot;]</span></code></p>
+</div></td>
+</tr>
+</tbody>
+</table>
+<section id="authors">
+<h3>Authors<a class="headerlink" href="#authors" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Arun Saravanan Balachandran (&#64;ArunSaravananBalachandran)</p></li>
+</ul>
+</section>
+<section id="collection-links">
+<h3>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h3>
+<ul class="ansible-links">
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://github.com/ansible-collections/dellemc.enterprise_sonic" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sonic_ip_neighbor_interfaces_module.html" class="btn btn-neutral float-left" title="dellemc.enterprise_sonic.sonic_ip_neighbor_interfaces module – Manage interface-specific IP neighbor configurations on SONiC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sonic_l2_acls_module.html" class="btn btn-neutral float-right" title="dellemc.enterprise_sonic.sonic_l2_acls module – Manage Layer 2 access control lists (ACL) configurations on SONiC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright dellemc.enterprise_sonic Contributors.</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+</body>
+</html>
