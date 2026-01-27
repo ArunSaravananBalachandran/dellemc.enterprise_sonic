@@ -7,8 +7,6 @@ on:
   push:
     branches:
       - doc_workflow
-    tags:
-      - '*'
   workflow_dispatch:
 
 jobs:
