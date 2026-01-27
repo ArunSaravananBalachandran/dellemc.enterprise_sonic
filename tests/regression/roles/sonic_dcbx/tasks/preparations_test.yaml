@@ -1,0 +1,6 @@
+---
+- name: Delete old DCBx configuration
+  sonic_dcbx:
+    config: {}
+    state: deleted
+  failed_when: false

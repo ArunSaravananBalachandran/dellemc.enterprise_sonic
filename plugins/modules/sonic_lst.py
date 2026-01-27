@@ -21,7 +21,7 @@ notes:
 short_description: Manage link state tracking (LST) configuration on SONiC
 description:
   - This module provides configuration management of LST for devices running SONiC
-author: Shade Talabi (@stalabi1)
+author: S. Talabi (@stalabi1)
 options:
   config:
     description:
@@ -389,7 +389,7 @@ after:
   sample: >
     The configuration returned will always be in the same format
     as the parameters above.
-after(generated):
+after_generated:
   description: The generated configuration from module invocation.
   returned: when C(check_mode)
   type: dict

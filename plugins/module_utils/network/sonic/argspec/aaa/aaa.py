@@ -43,12 +43,17 @@ class AaaArgs(object):  # pylint: disable=R0903
                 'authentication': {
                     'options': {
                         'auth_method': {
-                            'choices': ['ldap', 'local', 'radius', 'tacacs+'],
+                            'choices': ['ldap', 'local', 'radius', 'tacacs+', 'cac-piv'],
                             'elements': 'str',
                             'type': 'list'
                         },
                         'console_auth_local': {'type': 'bool'},
                         'failthrough': {'type': 'bool'},
+                        'mfa_auth_method': {
+                            'choices': ['rsa-securid'],
+                            'type': 'str'
+                        },
+                        'login_mfa_console': {'type': 'bool'}
                     },
                     'type': 'dict'
                 },
@@ -63,6 +68,41 @@ class AaaArgs(object):  # pylint: disable=R0903
                             'choices': ['ldap', 'local'],
                             'elements': 'str',
                             'type': 'list'
+                        }
+                    },
+                    'type': 'dict'
+                },
+                'accounting': {
+                    'options': {
+                        'commands_accounting': {
+                            'options': {
+                                'accounting_method': {
+                                    'choices': ['tacacs+', 'logging'],
+                                    'elements': 'str',
+                                    'type': 'list'
+                                },
+                                'accounting_record_type': {
+                                    'choices': ['start-stop', 'stop-only'],
+                                    'type': 'str'
+                                },
+                                'accounting_console_exempt': {'type': 'bool'}
+                            },
+                            'type': 'dict'
+                        },
+                        'session_accounting': {
+                            'options': {
+                                'accounting_method': {
+                                    'choices': ['tacacs+', 'logging'],
+                                    'elements': 'str',
+                                    'type': 'list'
+                                },
+                                'accounting_record_type': {
+                                    'choices': ['start-stop', 'stop-only'],
+                                    'type': 'str'
+                                },
+                                'accounting_console_exempt': {'type': 'bool'}
+                            },
+                            'type': 'dict'
                         }
                     },
                     'type': 'dict'

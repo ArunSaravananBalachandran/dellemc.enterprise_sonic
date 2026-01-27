@@ -21,7 +21,7 @@ notes:
 short_description: Manage BFD configuration on SONiC
 description:
   - This module provides configuration management of BFD for devices running SONiC
-author: "Shade Talabi (@stalabi1)"
+author: "S. Talabi (@stalabi1)"
 options:
   config:
     description:
@@ -635,7 +635,7 @@ after:
   sample: >
     The configuration returned will always be in the same format
     as the parameters above.
-after(generated):
+after_generated:
   description: The generated configuration module invocation.
   returned: when C(check_mode)
   type: list

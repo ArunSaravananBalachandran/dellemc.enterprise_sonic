@@ -51,7 +51,7 @@ options:
         description:
           - Specify the AS number notation format
           - Option supported on Enterprise-Sonic releases 4.4.0 and higher.
-        choices: [ 'asdot', 'asdot+' ]
+        choices: ['asdot', 'asdot+']
         type: str
       max_med:
         description:
@@ -84,6 +84,30 @@ options:
             description:
               - Configures keepalive-interval
             type: int
+      graceful_restart:
+        version_added: 3.1.0
+        description:
+          - Configure graceful restart
+        type: dict
+        suboptions:
+          enabled:
+            description:
+              - Enable graceful restart
+            type: bool
+          restart_time:
+            description:
+              - Configures restart-time.
+              - The range is from 1 to 3600.
+            type: int
+          stale_routes_time:
+            description:
+              - Configures stale-routes-time.
+              - The range is from 1 to 3600.
+            type: int
+          preserve_fw_state:
+            description:
+              - Configures preserve-fw-state
+            type: bool
       bestpath:
         description:
           - Configures the BGP best-path.
@@ -110,6 +134,16 @@ options:
                 description:
                   - Configures the multipath_relax_as_set values of as-path.
                 type: bool
+          bandwidth:
+            version_added: 3.1.0
+            description:
+              - Link Bandwidth attribute for the bestpath selection process
+              - Options are as follows
+              - default_weight - Assign a low default weight (value 1) to paths not having link bandwidth
+              - ignore_weight - Ignore link bandwidth (i.e., do regular ECMP, not weighted)
+              - skip_missing - Ignore paths without link bandwidth for ECMP (if other paths have it)
+            choices: ['default_weight', 'ignore_weight', 'skip_missing']
+            type: str
           compare_routerid:
             description:
               - Configures the compare_routerid.
@@ -168,11 +202,15 @@ EXAMPLES = """
 # !
 # router bgp 4
 #  router-id 10.2.2.4
+#  graceful-restart enable
+#  graceful-restart restart-time 1
+#  graceful-restart stalepath-time 500
 #  route-map delay-timer 10
 #  bestpath as-path ignore
 #  bestpath as-path confed
 #  bestpath med missing-as-worst confed
 #  bestpath compare-routerid
+#  bestpath bandwidth default-weight
 # !
 #
 - name: Delete BGP Global attributes
@@ -182,12 +220,16 @@ EXAMPLES = """
         router_id: 10.2.2.4
         rt_delay: 10
         log_neighbor_changes: false
+        graceful_restart:
+          stale_routes_time: 500
+          restart_time: 1
         bestpath:
           as_path:
             confed: true
             ignore: true
             multipath_relax: false
             multipath_relax_as_set: true
+          bandwidth: default_weight
           compare_routerid: true
           med:
             confed: true
@@ -224,6 +266,7 @@ EXAMPLES = """
 #  bestpath compare-routerid
 # !
 # router bgp 4
+#  graceful-restart enable
 #  log-neighbor-changes
 #  bestpath compare-routerid
 # !
@@ -241,10 +284,12 @@ EXAMPLES = """
 #  log-neighbor-changes
 # !
 # router bgp 11 vrf VrfCheck2
+#  graceful-restart enable
 #  log-neighbor-changes
 #  bestpath as-path ignore
 #  bestpath med missing-as-worst confed
 #  bestpath compare-routerid
+#  bestpath bandwidth ignore-weight
 # !
 # router bgp 4
 #  router-id 10.2.2.4
@@ -284,6 +329,9 @@ EXAMPLES = """
         router_id: 10.2.2.4
         rt_delay: 10
         log_neighbor_changes: false
+        graceful_restart:
+          enabled: true
+          preserve_fw_state: true
         timers:
           holdtime: 20
           keepalive_interval: 30
@@ -293,6 +341,7 @@ EXAMPLES = """
             ignore: true
             multipath_relax: false
             multipath_relax_as_set: true
+          bandwidth: ignore-weight
           compare_routerid: true
           med:
             confed: true
@@ -339,11 +388,14 @@ EXAMPLES = """
 # !
 # router bgp 4
 #  router-id 10.2.2.4
+#  graceful-restart enable
+#  graceful-restart preserve-fw-state
 #  route-map delay-timer 10
 #  bestpath as-path ignore
 #  bestpath as-path confed
 #  bestpath med missing-as-worst confed
 #  bestpath compare-routerid
+#  bestpath bandwidth ignore-weight
 #  always-compare-med
 #  max-med on-startup 667 7878
 #  timers 20 30
@@ -369,6 +421,7 @@ EXAMPLES = """
 #  bestpath as-path confed
 #  bestpath med missing-as-worst confed
 #  bestpath compare-routerid
+#  bestpath bandwidth default-weight
 #  timers 20 30
 # !
 #
@@ -382,6 +435,7 @@ EXAMPLES = """
         bestpath:
           as_path:
             confed: true
+          bandwidth: skip_missing
           compare_routerid: true
       - bgp_as: 11
         vrf_name: 'VrfCheck2'
@@ -421,6 +475,7 @@ EXAMPLES = """
 #  log-neighbor-changes
 #  bestpath as-path confed
 #  bestpath compare-routerid
+#  bestpath bandwidth skip_missing
 #  timers 60 180
 # !
 
@@ -443,6 +498,7 @@ EXAMPLES = """
 #  bestpath as-path confed
 #  bestpath med missing-as-worst confed
 #  bestpath compare-routerid
+#  bestpath bandwidth default-weight
 #  timers 20 30
 # !
 #

@@ -31,9 +31,6 @@ class TestSonicVxlansModule(TestSonicModule):
         cls.mock_get_interface_naming_mode = patch(
             "ansible_collections.dellemc.enterprise_sonic.plugins.module_utils.network.sonic.utils.utils.get_device_interface_naming_mode"
         )
-        cls.mock_send_requests = patch(
-            "ansible_collections.dellemc.enterprise_sonic.plugins.module_utils.network.sonic.config.vxlans.vxlans.send_requests"
-        )
         cls.fixture_data = cls.load_fixtures('sonic_vxlans.yaml')
 
     def setUp(self):
@@ -44,8 +41,6 @@ class TestSonicVxlansModule(TestSonicModule):
         self.config_edit_config.side_effect = self.config_side_effect
         self.get_interface_naming_mode = self.mock_get_interface_naming_mode.start()
         self.get_interface_naming_mode.return_value = 'standard'
-        self.send_requests = self.mock_send_requests.start()
-        self.send_requests.return_value = None
         self.utils_edit_config = self.mock_utils_edit_config.start()
         self.utils_edit_config.side_effect = self.facts_side_effect
 
@@ -54,7 +49,6 @@ class TestSonicVxlansModule(TestSonicModule):
         self.mock_facts_edit_config.stop()
         self.mock_config_edit_config.stop()
         self.mock_get_interface_naming_mode.stop()
-        self.mock_send_requests.stop()
         self.mock_utils_edit_config.stop()
 
     def test_sonic_vxlans_merged_01(self):
@@ -117,6 +111,13 @@ class TestSonicVxlansModule(TestSonicModule):
     # As part of UT, sonic_module.py does a SORTING before comparison and hence the sequence of the actual configs sent to device varies from the sequence.
     # in which the UT test case compares with expected results. The actual sequence in which the requests are sent to device should be working fine.
 
+    def test_sonic_vxlans_replaced_01(self):
+        set_module_args(self.fixture_data['replaced_01']['module_args'])
+        self.initialize_facts_get_requests(self.fixture_data['replaced_01']['existing_vxlans_config'])
+        self.initialize_config_requests(self.fixture_data['replaced_01']['expected_config_requests'])
+        result = self.execute_module(changed=True)
+        self.validate_config_requests()
+
     def test_sonic_vxlans_replaced_02(self):
         set_module_args(self.fixture_data['replaced_02']['module_args'])
         self.initialize_facts_get_requests(self.fixture_data['replaced_02']['existing_vxlans_config'])
@@ -124,10 +125,10 @@ class TestSonicVxlansModule(TestSonicModule):
         result = self.execute_module(changed=True)
         self.validate_config_requests()
 
-    def test_sonic_vxlans_replaced_03(self):
-        set_module_args(self.fixture_data['replaced_03']['module_args'])
-        self.initialize_facts_get_requests(self.fixture_data['replaced_03']['existing_vxlans_config'])
-        self.initialize_config_requests(self.fixture_data['replaced_03']['expected_config_requests'])
+    def test_sonic_vxlans_overridden_01(self):
+        set_module_args(self.fixture_data['overridden_01']['module_args'])
+        self.initialize_facts_get_requests(self.fixture_data['overridden_01']['existing_vxlans_config'])
+        self.initialize_config_requests(self.fixture_data['overridden_01']['expected_config_requests'])
         result = self.execute_module(changed=True)
         self.validate_config_requests()
 
@@ -135,12 +136,5 @@ class TestSonicVxlansModule(TestSonicModule):
         set_module_args(self.fixture_data['overridden_02']['module_args'])
         self.initialize_facts_get_requests(self.fixture_data['overridden_02']['existing_vxlans_config'])
         self.initialize_config_requests(self.fixture_data['overridden_02']['expected_config_requests'])
-        result = self.execute_module(changed=True)
-        self.validate_config_requests()
-
-    def test_sonic_vxlans_overridden_03(self):
-        set_module_args(self.fixture_data['overridden_03']['module_args'])
-        self.initialize_facts_get_requests(self.fixture_data['overridden_03']['existing_vxlans_config'])
-        self.initialize_config_requests(self.fixture_data['overridden_03']['expected_config_requests'])
         result = self.execute_module(changed=True)
         self.validate_config_requests()

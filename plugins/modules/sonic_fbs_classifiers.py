@@ -21,7 +21,7 @@ notes:
 short_description: Manage flow based services (FBS) classifiers configuration on SONiC
 description:
   - This module provides configuration management of FBS classifiers for devices running SONiC
-author: "Shade Talabi (@stalabi1)"
+author: "S. Talabi (@stalabi1)"
 options:
   config:
     description:
@@ -440,7 +440,7 @@ after:
   description: The resulting configuration module invocation.
   returned: when changed
   type: list
-after(generated):
+after_generated:
   description: The generated configuration from module invocation.
   returned: when C(check_mode)
   type: list

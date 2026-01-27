@@ -19,7 +19,7 @@ version_added: 1.1.0
 notes:
   - Tested against Enterprise SONiC Distribution by Dell Technologies
   - Supports C(check_mode)
-author: Shade Talabi (@stalabi1)
+author: S. Talabi (@stalabi1)
 short_description: Manage AAA configuration on SONiC
 description:
   - This module provides configuration management of AAA for devices running SONiC.
@@ -41,9 +41,11 @@ options:
             description:
               - Specifies the order of the methods in which to authenticate login
               - Any 1 choice may be specified or 2 choices consisting of local and another group may be specified
+              - C(cac-piv) option is only available in devices running sonic 4.5.0 and above.
+              - MFA is not applicable when C(cac-piv) is configured as first factor for authentication.
             type: list
             elements: str
-            choices: ['ldap', 'local', 'radius', 'tacacs+']
+            choices: ['ldap', 'local', 'radius', 'tacacs+', 'cac-piv']
           console_auth_local :
             description:
               Enable/disable local authentication on console
@@ -51,6 +53,17 @@ options:
           failthrough:
             description:
               - Enable/disable failthrough
+            type: bool
+          mfa_auth_method:
+            version_added: 3.1.0
+            description:
+              - Specifies RSA SecurID as multi-factor authentication method.
+            type: str
+            choices: ['rsa-securid']
+          login_mfa_console:
+            version_added: 3.1.0
+            description:
+              - Enable/disable MFA method for console access.
             type: bool
       authorization:
         description:
@@ -70,6 +83,56 @@ options:
             type: list
             elements: str
             choices: ['ldap', 'local']
+      accounting:
+        description:
+          - AAA accounting configuration.
+        type: dict
+        version_added: 4.0.0
+        suboptions:
+          commands_accounting:
+            description:
+              - AAA commands accounting configuration.
+            type: dict
+            suboptions:
+              accounting_method:
+                description:
+                  - Specifies the methods in which to perform accounting.
+                type: list
+                elements: str
+                choices: ['tacacs+', 'logging']
+              accounting_record_type:
+                description:
+                  - Specifies the type of record to be sent to the accounting server.
+                type: str
+                choices:
+                  - start-stop
+                  - stop-only
+              accounting_console_exempt:
+                description:
+                  - Exempt accounting of events from console.
+                type: bool
+          session_accounting:
+            description:
+              - AAA session accounting configuration.
+            type: dict
+            suboptions:
+              accounting_method:
+                description:
+                  - Specifies the methods in which to perform accounting.
+                type: list
+                elements: str
+                choices: ['tacacs+', 'logging']
+              accounting_record_type:
+                description:
+                  - Specifies the type of record to be sent to the accounting server.
+                type: str
+                choices:
+                  - start-stop
+                  - stop-only
+              accounting_console_exempt:
+                description:
+                  - Exempt accounting of events from console.
+                type: bool
       name_service:
         description:
           - AAA name-service configuration
@@ -122,6 +185,15 @@ EXAMPLES = """
 #
 # sonic# show aaa
 # (No AAA configuration present)
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : None
+# Console Exempted               : None
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 - name: Merge AAA configuration
   dellemc.enterprise_sonic.sonic_aaa:
@@ -132,6 +204,8 @@ EXAMPLES = """
           - ldap
         console_auth_local: true
         failthrough: true
+        mfa_auth_method: 'rsa-securid'
+        login_mfa_console: true
       authorization:
         commands_auth_method:
           - local
@@ -139,6 +213,18 @@ EXAMPLES = """
         login_auth_method:
           - local
           - ldap
+      accounting:
+        commands_accounting:
+          accounting_method:
+            - tacacs+
+            - logging
+          accounting_record_type: 'start-stop'
+          accounting_console_exempt: true
+        session_accounting:
+          accounting_method:
+            - logging
+          accounting_record_type: 'stop-only'
+          accounting_console_exempt: true
       name_service:
         group:
           - ldap
@@ -161,12 +247,18 @@ EXAMPLES = """
 # ---------------------------------------------------------
 # failthrough  : True
 # login-method : local, ldap
+# login-mfa    : rsa-securid
 # console authentication  : local
 # ---------------------------------------------------------
 # AAA Authorization Information
 # ---------------------------------------------------------
 # login        : local, ldap
 # commands     : local, tacacs+
+# ---------------------------------------------------------
+# AAA Accounting Information
+# ---------------------------------------------------------
+# commands   : tacacs+, logging (start-stop, console-disabled)
+# session    : logging (stop-only, console-disabled)
 # ---------------------------------------------------------
 # AAA Name-Service Information
 # ---------------------------------------------------------
@@ -175,6 +267,15 @@ EXAMPLES = """
 # passwd-method   : login
 # shadow-method   : ldap
 # sudoers-method  : local
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : rsa-securid
+# Console Exempted               : No
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 
 # Using "replaced" state
@@ -188,12 +289,18 @@ EXAMPLES = """
 # ---------------------------------------------------------
 # failthrough  : True
 # login-method : local, ldap
+# login-mfa    : rsa-securid
 # console authentication  : local
 # ---------------------------------------------------------
 # AAA Authorization Information
 # ---------------------------------------------------------
 # login        : local, ldap
 # commands     : local, tacacs+
+# ---------------------------------------------------------
+# AAA Accounting Information
+# ---------------------------------------------------------
+# commands   : tacacs+, logging (start-stop, console-disabled)
+# session    : logging (stop-only, console-disabled)
 # ---------------------------------------------------------
 # AAA Name-Service Information
 # ---------------------------------------------------------
@@ -202,16 +309,34 @@ EXAMPLES = """
 # passwd-method   : login
 # shadow-method   : ldap
 # sudoers-method  : local
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : rsa-securid
+# Console Exempted               : No
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 - name: Replace AAA configuration
   dellemc.enterprise_sonic.sonic_aaa:
     config:
       authentication:
+        auth_method:
+          - cac-piv
+          - local
         console_auth_local: true
         failthrough: false
       authorization:
         commands_auth_method:
           - local
+      accounting:
+        commands_accounting:
+          accounting_method:
+            - tacacs+
+        session_accounting:
+          accounting_record_type: 'start-stop'
       name_service:
         group:
           - ldap
@@ -225,16 +350,31 @@ EXAMPLES = """
 # AAA Authentication Information
 # ---------------------------------------------------------
 # failthrough  : False
-# login-method :
+# login-method : cac-piv, local
+# login-mfa    : None
 # console authentication  : local
 # ---------------------------------------------------------
 # AAA Authorization Information
 # ---------------------------------------------------------
 # login        : local
 # ---------------------------------------------------------
+# AAA Accounting Information
+# ---------------------------------------------------------
+# commands   : tacacs+ (start-stop, console-disabled)
+# session    : logging (start-stop, console-disabled)
+# ---------------------------------------------------------
 # AAA Name-Service Information
 # ---------------------------------------------------------
 # group-method    : ldap
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : None
+# Console Exempted               : None
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 
 # Using "overridden" state
@@ -248,12 +388,18 @@ EXAMPLES = """
 # ---------------------------------------------------------
 # failthrough  : True
 # login-method : local, ldap
+# login-mfa    : rsa-securid
 # console authentication  : local
 # ---------------------------------------------------------
 # AAA Authorization Information
 # ---------------------------------------------------------
 # login        : local, ldap
 # commands     : local, tacacs+
+# ---------------------------------------------------------
+# AAA Accounting Information
+# ---------------------------------------------------------
+# commands   : tacacs+ (start-stop, console-disabled)
+# session    : logging (start-stop, console-disabled)
 # ---------------------------------------------------------
 # AAA Name-Service Information
 # ---------------------------------------------------------
@@ -262,6 +408,15 @@ EXAMPLES = """
 # passwd-method   : login
 # shadow-method   : ldap
 # sudoers-method  : local
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : rsa-securid
+# Console Exempted               : Yes
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 - name: Override AAA configuration
   dellemc.enterprise_sonic.sonic_aaa:
@@ -271,6 +426,20 @@ EXAMPLES = """
           - tacacs+
         console_auth_local: true
         failthrough: true
+        mfa_auth_method: 'rsa-securid'
+        login_mfa_console: true
+      accounting:
+        commands_accounting:
+          accounting_method:
+            - tacacs+
+            - logging
+          accounting_record_type: 'stop-only'
+          accounting_console_exempt: true
+        session_accounting:
+          accounting_method:
+            - logging
+          accounting_record_type: 'stop-only'
+          accounting_console_exempt: true
     state: overridden
 
 # After state:
@@ -282,8 +451,22 @@ EXAMPLES = """
 # ---------------------------------------------------------
 # failthrough  : True
 # login-method : tacacs+
+# login-mfa    : rsa-securid
 # console authentication  : local
-
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : rsa-securid
+# Console Exempted               : No
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
+# ---------------------------------------------------------
+# AAA Accounting Information
+# ---------------------------------------------------------
+# commands   : tacacs+, logging (stop-only, console-disabled)
+# session    : logging (stop-only, console-disabled)
 
 # Using "deleted" state
 #
@@ -296,12 +479,18 @@ EXAMPLES = """
 # ---------------------------------------------------------
 # failthrough  : True
 # login-method : local, ldap
+# login-mfa    : rsa-securid
 # console authentication  : local
 # ---------------------------------------------------------
 # AAA Authorization Information
 # ---------------------------------------------------------
 # login        : local, ldap
 # commands     : local, tacacs+
+# ---------------------------------------------------------
+# AAA Accounting Information
+# ---------------------------------------------------------
+# commands   : tacacs+, logging (stop-only, console-disabled)
+# session    : logging (stop-only, console-disabled)
 # ---------------------------------------------------------
 # AAA Name-Service Information
 # ---------------------------------------------------------
@@ -310,6 +499,15 @@ EXAMPLES = """
 # passwd-method   : login
 # shadow-method   : ldap
 # sudoers-method  : local
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : rsa-securid
+# Console Exempted               : No
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 - name: Delete AAA individual attributes
   dellemc.enterprise_sonic.sonic_aaa:
@@ -320,6 +518,8 @@ EXAMPLES = """
           - ldap
         console_auth_local: true
         failthrough: true
+        mfa_auth_method: 'rsa-securid'
+        login_mfa_console: true
       authorization:
         commands_auth_method:
           - local
@@ -327,6 +527,18 @@ EXAMPLES = """
         login_auth_method:
           - local
           - ldap
+      accounting:
+        commands_accounting:
+          accounting_method:
+            - tacacs+
+            - logging
+          accounting_record_type: 'stop-only'
+          accounting_console_exempt: true
+        session_accounting:
+          accounting_method:
+            - logging
+          accounting_record_type: 'stop-only'
+          accounting_console_exempt: true
       name_service:
         group:
           - ldap
@@ -345,6 +557,15 @@ EXAMPLES = """
 #
 # sonic# show aaa
 # (No AAA configuration present)
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : None
+# Console Exempted               : None
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 
 # Using "deleted" state
@@ -358,12 +579,18 @@ EXAMPLES = """
 # ---------------------------------------------------------
 # failthrough  : True
 # login-method : local, ldap
+# login-mfa    : rsa-securid
 # console authentication  : local
 # ---------------------------------------------------------
 # AAA Authorization Information
 # ---------------------------------------------------------
 # login        : local, ldap
 # commands     : local, tacacs+
+# ---------------------------------------------------------
+# AAA Accounting Information
+# ---------------------------------------------------------
+# commands   : tacacs+, logging (stop-only, console-disabled)
+# session    : logging (stop-only, console-disabled)
 # ---------------------------------------------------------
 # AAA Name-Service Information
 # ---------------------------------------------------------
@@ -372,6 +599,15 @@ EXAMPLES = """
 # passwd-method   : login
 # shadow-method   : ldap
 # sudoers-method  : local
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : rsa-securid
+# Console Exempted               : Yes
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 
 - name: Delete all AAA configuration
   dellemc.enterprise_sonic.sonic_aaa:
@@ -383,6 +619,15 @@ EXAMPLES = """
 #
 # sonic# show aaa
 # (No AAA configuration present)
+#
+# sonic# show mfa
+# ---------------------------------------------------------
+# Multi-factor Authentication Information
+# ---------------------------------------------------------
+# MFA Authentication             : None
+# Console Exempted               : None
+# MFA Service Security Profile   : None
+# RSA SecurID Security Profile   : None
 """
 
 RETURN = """
@@ -394,7 +639,7 @@ after:
   description: The resulting configuration module invocation.
   returned: when changed
   type: dict
-after(generated):
+after_generated:
   description: The generated configuration module invocation.
   returned: when C(check_mode)
   type: dict

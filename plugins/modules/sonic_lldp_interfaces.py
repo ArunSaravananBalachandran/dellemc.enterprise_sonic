@@ -15,6 +15,9 @@ DOCUMENTATION = """
 ---
 module: sonic_lldp_interfaces
 version_added: '2.1.0'
+notes:
+  - Tested against Enterprise SONiC Distribution by Dell Technologies.
+  - Supports C(check_mode).
 short_description: Manage Inteface LLDP configurations on SONiC
 description:
   - This module provides configuration management of interface LLDP parameters
@@ -46,6 +49,11 @@ options:
         choices:
            - 'receive'
            - 'transmit'
+      network_policy:
+        description:
+          - Network policy number, range 1-128.
+        version_added: '3.1.0'
+        type: int
       med_tlv_select:
         description:
           - This command can be used to select whether to advertise the LLDP-MED TLVs or not.
@@ -168,6 +176,7 @@ EXAMPLES = """
 #  unreliable-los auto
 #  no shutdown
 #  lldp transmit
+#  network-policy 1
 #  lldp tlv-set management-address ipv4 10.1.1.2
 # sonic#
 
@@ -176,6 +185,7 @@ EXAMPLES = """
     config:
       - name: Ethernet1
         mode: transmit
+        network_policy: 1
         tlv_set:
           ipv4_management_address: 10.1.1.2
     state: deleted
@@ -337,6 +347,7 @@ EXAMPLES = """
       - name: Ethernet1
         enable: true
         mode: transmit
+        network_policy: 2
         med_tlv_select:
           power_management: true
         tlv_set:
@@ -364,6 +375,7 @@ EXAMPLES = """
 #  unreliable-los auto
 #  no shutdown
 #  lldp transmit
+#  network-policy 2
 #  lldp tlv-set management-address ipv4 10.1.1.2
 #  lldp vlan-name-tlv allowed Vlan 10,15-20
 #  lldp vlan-name-tlv max-tlv-count 15
@@ -509,6 +521,13 @@ after:
     The configuration returned will always be in the same format
     as the parameters above.
   type: list
+after_generated:
+  description: The generated configuration from module invocation.
+  returned: when C(check_mode)
+  type: list
+  sample: >
+    The configuration returned will always be in the same format
+     of the parameters above.
 commands:
   description: The set of commands pushed to the remote device.
   returned: always

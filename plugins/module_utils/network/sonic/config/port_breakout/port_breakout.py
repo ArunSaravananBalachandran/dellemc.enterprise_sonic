@@ -1,6 +1,6 @@
 #
 # -*- coding: utf-8 -*-
-# Copyright 2019 Red Hat
+# © Copyright 2025 Dell Inc. or its subsidiaries. All Rights Reserved.
 # GNU General Public License v3.0+
 # (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 """
@@ -104,7 +104,7 @@ class Port_breakout(ConfigBase):
             result.pop('after', None)
             new_config = get_new_config(commands, existing_port_breakout_facts,
                                         TEST_KEYS_generate_config)
-            result['after(generated)'] = new_config
+            result['after_generated'] = new_config
 
         if self._module._diff:
             new_config.sort(key=lambda x: x['name'])
